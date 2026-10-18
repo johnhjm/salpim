@@ -284,6 +284,16 @@ table.cmp { width: 100%; border-collapse: collapse; font-size: 15px; }
 }
 @media (max-width: 480px) { .sum-grid { grid-template-columns: minmax(0, 1fr); } .sum-head .seg { width: 100%; } .seg button { flex: 1; } }
 
+/* 누가 살피나요 */
+.who { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; align-items: start; }
+.who-body { display: grid; gap: 14px; font-size: 17px; }
+.who-body p { color: var(--muted); }
+.who-body p.lead2 { color: var(--ink); font-size: 20px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.55; }
+.who-list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; font-size: 15px; color: var(--muted); }
+.who-list li { display: flex; gap: 10px; align-items: baseline; }
+.who-list b { flex: none; width: 3em; color: var(--ink); font-weight: 700; }
+@media (max-width: 860px) { .who { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+
 /* 공통 구역 */
 section[id], #check, #sum { scroll-margin-top: 76px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -506,6 +516,21 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <li><span><b>문제가 보이면</b> 그날 바로 연락드리고 고칩니다.</span></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="who">
+    <div class="wrap who">
+      <h2>누가 살피나요</h2>
+      <div class="who-body">
+        <p class="lead2">평일에는 다리, 옹벽, 터널 같은 시설물을 점검하는 일을 합니다.</p>
+        <p>정해진 날 정해진 항목을 빠짐없이 보고, 작은 금 하나도 기록으로 남기는 일입니다. 살핌은 그 습관을 홈페이지에 옮긴 서비스입니다. 화려하게 만드는 것보다, 만든 홈페이지가 오래 제대로 열리게 하는 데 더 마음을 씁니다.</p>
+        <ul class="who-list">
+          <li><b>점검</b><span>매주 월요일 아침, 정해진 여섯 가지</span></li>
+          <li><b>연락</b><span>작은 수정은 다음 영업일까지, 문제는 그날</span></li>
+          <li><b>상담</b><span>부산은 직접 찾아뵙고, 다른 지역은 전화와 메시지로</span></li>
+        </ul>
       </div>
     </div>
   </section>
