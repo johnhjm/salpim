@@ -23,5 +23,7 @@ Ha님의 홈페이지 제작·월 관리 부업 "살핌"(가칭)의 소개 사�
   - 샘플마다 업종에 맞는 상징 하나: 음식점 '지금 영업 중'(한국 시간 계산, `common.js`), 학원 모눈 시간표, 병원 '오늘 진료' 안내판, 회사 공종별 실적 거르기
   - 휴대폰은 화면 아래 전화·길찾기 고정, PC는 오른쪽 아래 떠 있는 상자
   - 모두 가상 업체, 상단 띠에 샘플 표시, `noindex`
-- [ ] GitHub 저장소 + Cloudflare Pages 연결, 검색 등록, 방문 통계, OG 그림(og.png)
+- [x] GitHub 저장소(johnhjm/salpim) + Cloudflare Pages 연결 → 임시 주소 https://salpim.pages.dev (출력 폴더 `site`, main에 올리면 자동 배포) (2026-10-18)
+- [x] 샘플에 실사 사진(Unsplash, images.unsplash.com 직접 연결 + 바닥글에 작가 표기). 원장 사진은 '직접 촬영' 자리로 남김. claude.ai 미리보기에서는 외부 사진이 막혀 안 보이고 pages.dev에서만 보인다 (2026-10-18)
+- [ ] 도메인 연결 후 검색 등록, 방문 통계, OG 그림(og.png)
 - [ ] 사업자 등록 후 바닥글에 사업자 정보
