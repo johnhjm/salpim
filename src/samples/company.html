@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>동백토건 (샘플)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 회사 샘플: 토목 시공사. 도면의 콘크리트 단면 해칭과 강철색. 상징은 공종별로 걸러 보는 시공 실적표 */
+:root {
+  color-scheme: light;
+  --char: #1D2125; --char-2: #2A3036; --concrete: #EFEEEB; --paper: #FFFFFF; --ink: #1D2125; --muted: #5F666D; --line: #DCDAD5;
+  --steel: #2D5277; --steel-soft: #E3EAF1;
+  --font: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.7 var(--font); word-break: keep-all; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--steel); outline-offset: 3px; }
+
+.demo { background: #000; color: #F2F2EE; font-size: 13px; }
+.demo .wrap { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; }
+.demo a { color: #F2F2EE; font-weight: 700; white-space: nowrap; }
+
+.hero { background-color: var(--char); color: #fff; padding-block: 18px 72px;
+  background-image: linear-gradient(90deg, rgba(20, 22, 25, .94) 0%, rgba(20, 22, 25, .78) 50%, rgba(20, 22, 25, .4) 100%), url("https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=crop&w=1800&q=70"), repeating-linear-gradient(-45deg, rgba(255, 255, 255, .045) 0 2px, transparent 2px 14px);
+  background-size: auto, cover, auto; background-position: 0 0, center, 0 0; }
+@media (max-width: 720px) { .hero { background-image: linear-gradient(180deg, rgba(20, 22, 25, .82) 0%, rgba(20, 22, 25, .9) 100%), url("https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=crop&w=900&q=70"), none; } }
+.site { position: relative; margin: 26px 0 0; aspect-ratio: 21 / 8; overflow: hidden; background: var(--concrete); border-radius: 4px; }
+.site img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.85); }
+.site figcaption { position: absolute; left: 0; bottom: 0; background: var(--char); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 12px; }
+@media (max-width: 720px) { .site { aspect-ratio: 4 / 3; } }
+footer .credit { margin-top: 6px; font-size: 12px; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding-bottom: 40px; }
+.logo { font-weight: 900; font-size: 20px; letter-spacing: -0.03em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 22px; height: 22px; border: 3px solid #fff; transform: rotate(45deg); }
+.nav span { font-size: 14px; color: rgba(255, 255, 255, .7); }
+.hero h1 { font-weight: 900; font-size: clamp(36px, 7.4vw, 64px); line-height: 1.15; letter-spacing: -0.04em; max-width: 13em; }
+.hero p.lead { margin-top: 18px; color: rgba(255, 255, 255, .78); font-size: 18px; max-width: 30em; }
+.acts { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 4px; font-weight: 700; text-decoration: none; }
+.btn-w { background: #fff; color: var(--char); }
+.btn-o { border: 1.5px solid rgba(255, 255, 255, .5); color: #fff; }
+
+.facts { background: var(--char-2); color: #fff; }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fact { padding: 20px 16px 22px 0; border-right: 1px solid rgba(255, 255, 255, .14); margin-right: 16px; }
+.fact:last-child { border-right: 0; margin-right: 0; }
+.fact b { display: block; font-size: 28px; font-weight: 900; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: rgba(255, 255, 255, .7); }
+
+section.s { padding-block: 56px; }
+section.gray { background: var(--concrete); }
+.s h2 { font-size: clamp(26px, 5vw, 36px); font-weight: 900; letter-spacing: -0.03em; }
+.s .sub { margin-top: 6px; color: var(--muted); }
+
+.fields { margin-top: 26px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.field { padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); }
+.field h3 { font-size: 18px; font-weight: 700; }
+.field p { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+.filters { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: 500 14px var(--font); min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.filters button[aria-pressed="true"] { background: var(--steel); border-color: var(--steel); color: #fff; }
+.filters button span { margin-left: 4px; opacity: .7; font-variant-numeric: tabular-nums; }
+.works-wrap { margin-top: 16px; overflow-x: auto; background: var(--paper); border: 1px solid var(--line); }
+table.works { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.works th, .works td { padding: 13px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.works thead th { font-size: 13px; color: var(--muted); font-weight: 500; background: var(--concrete); }
+.works td.y { font-weight: 700; width: 70px; }
+.works .tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--steel); background: var(--steel-soft); padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+.works tr[hidden] { display: none; }
+.works tr.in { animation: rowin .25s ease-out both; }
+@keyframes rowin { from { opacity: 0; } to { opacity: 1; } }
+
+.lic { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lic div { border-left: 3px solid var(--steel); padding: 6px 0 6px 14px; }
+.lic b { display: block; }
+.lic span { font-size: 14px; color: var(--muted); }
+
+.contact { background: var(--char); color: #fff; }
+.contact .grid { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.contact .k { font-size: 13px; color: rgba(255, 255, 255, .6); }
+.contact .v { font-weight: 500; }
+
+footer { padding-block: 24px 40px; font-size: 13px; color: var(--muted); }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: var(--paper); border-top: 1px solid var(--line);
+  padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.dock a { min-height: 50px; display: grid; place-items: center; border-radius: 4px; font-weight: 700; text-decoration: none; background: var(--concrete); color: var(--ink); }
+.dock a.main { background: var(--steel); color: #fff; }
+@media (min-width: 900px) { .dock { left: auto; right: 24px; bottom: 24px; width: 340px; border: 1px solid var(--line); box-shadow: 0 16px 40px -20px rgba(29, 33, 37, .5); padding: 10px; } body { padding-bottom: 0; } }
+@media (max-width: 760px) {
+  .facts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact:nth-child(2) { border-right: 0; margin-right: 0; }
+  .fact:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, .14); }
+  .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lic, .contact .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .works tr.in { animation: none; } .filters button { transition: none; } }
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap"><span>살핌 샘플 사이트입니다. 가상의 회사이고 실적과 연락처는 예시입니다.</span><a href="../" onclick="if (history.length > 1) { history.back(); return false; }">살핌으로</a></div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="nav"><a class="logo" href="#"><i aria-hidden="true"></i>동백토건</a><span>토목공사업 전문</span></div>
+    <h1>옹벽, 하천, 도로를 짓고 보수합니다</h1>
+    <p class="lead">부산과 경남에서 공공 토목공사를 시공해 온 회사입니다. 설계 검토부터 준공까지 현장 기술자가 직접 맡습니다.</p>
+    <div class="acts">
+      <a class="btn btn-w" href="#works">시공 실적 보기</a>
+      <a class="btn btn-o" href="#contact">견적 문의</a>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>1994</b><span>설립</span></div>
+    <div class="fact"><b>186건</b><span>준공 실적</span></div>
+    <div class="fact"><b>3종</b><span>건설업 면허</span></div>
+    <div class="fact"><b>41명</b><span>기술 인력</span></div>
+  </div>
+</div>
+
+<main>
+  <section class="s">
+    <div class="wrap">
+      <h2>사업 분야</h2>
+      <figure class="site"><img src="https://images.unsplash.com/photo-1694521787162-5373b598945c?auto=format&fit=crop&w=1400&q=70" alt="공사 현장에서 일하는 기술자들" loading="lazy" onerror="this.remove()"><figcaption>현장 기술자가 직접 맡습니다</figcaption></figure>
+      <div class="fields">
+        <div class="field"><h3>옹벽과 사면</h3><p>보강토 옹벽, 콘크리트 옹벽, 낙석 방지</p></div>
+        <div class="field"><h3>하천</h3><p>제방 정비, 호안, 복개구조물 보수</p></div>
+        <div class="field"><h3>도로</h3><p>도로 확장, 포장, 배수 시설</p></div>
+        <div class="field"><h3>교량 보수</h3><p>단면 보수, 신축이음 교체, 받침 교체</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s gray" id="works">
+    <div class="wrap">
+      <h2>시공 실적</h2>
+      <p class="sub">최근 공사 일부입니다. 공종을 누르면 해당 실적만 보입니다.</p>
+      <div class="filters" role="group" aria-label="공종으로 거르기">
+        <button type="button" data-f="all" aria-pressed="true">전체<span>8</span></button>
+        <button type="button" data-f="옹벽" aria-pressed="false">옹벽과 사면<span>3</span></button>
+        <button type="button" data-f="하천" aria-pressed="false">하천<span>2</span></button>
+        <button type="button" data-f="도로" aria-pressed="false">도로<span>2</span></button>
+        <button type="button" data-f="교량" aria-pressed="false">교량 보수<span>1</span></button>
+      </div>
+      <div class="works-wrap">
+        <table class="works">
+          <thead><tr><th scope="col">연도</th><th scope="col">공사명</th><th scope="col">발주처</th><th scope="col">공종</th></tr></thead>
+          <tbody id="rows">
+            <tr data-f="옹벽"><td class="y">2026</td><td>○○동 급경사지 보강토 옹벽 설치공사</td><td>○○구청</td><td><span class="tag">옹벽과 사면</span></td></tr>
+            <tr data-f="하천"><td class="y">2025</td><td>○○천 복개구조물 보수보강공사</td><td>○○시</td><td><span class="tag">하천</span></td></tr>
+            <tr data-f="도로"><td class="y">2025</td><td>○○로 도로 확장공사 (2공구)</td><td>○○시</td><td><span class="tag">도로</span></td></tr>
+            <tr data-f="교량"><td class="y">2024</td><td>○○교 신축이음장치 교체공사</td><td>○○군</td><td><span class="tag">교량 보수</span></td></tr>
+            <tr data-f="옹벽"><td class="y">2024</td><td>○○산업단지 진입로 옹벽공사</td><td>○○공사</td><td><span class="tag">옹벽과 사면</span></td></tr>
+            <tr data-f="하천"><td class="y">2023</td><td>○○천 제방 정비공사</td><td>○○군</td><td><span class="tag">하천</span></td></tr>
+            <tr data-f="도로"><td class="y">2023</td><td>○○마을 진입도로 포장공사</td><td>○○구청</td><td><span class="tag">도로</span></td></tr>
+            <tr data-f="옹벽"><td class="y">2022</td><td>○○사면 낙석방지시설 설치공사</td><td>○○시</td><td><span class="tag">옹벽과 사면</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>면허와 인증</h2>
+      <div class="lic">
+        <div><b>토목공사업</b><span>종합건설업 면허</span></div>
+        <div><b>철근·콘크리트공사업</b><span>전문건설업 면허</span></div>
+        <div><b>상하수도설비공사업</b><span>전문건설업 면허</span></div>
+        <div><b>ISO 9001</b><span>품질경영시스템 인증</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s contact" id="contact">
+    <div class="wrap">
+      <h2>견적과 협력 문의</h2>
+      <div class="grid">
+        <div><p class="k">본사</p><p class="v">부산 ○○구 ○○로 (샘플 주소)</p></div>
+        <div><p class="k">전화</p><p class="v">051-000-0000</p></div>
+        <div><p class="k">이메일</p><p class="v">contact@example.com</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">동백토건은 가상의 회사입니다. 실적과 면허는 실제 고객 자료로 바뀝니다. 홈페이지 제작과 관리: 살핌
+  <p class="credit">사진: <a href="https://unsplash.com/photos/YajbkTmR2uw?utm_source=salpim&amp;utm_medium=referral">Ismet BELAOUEDJ</a>, <a href="https://unsplash.com/photos/DWp5nUqTn6E?utm_source=salpim&amp;utm_medium=referral">Glenov Brankovic</a> / <a href="https://unsplash.com/?utm_source=salpim&amp;utm_medium=referral">Unsplash</a>. 실제 회사는 직접 시공한 현장 사진으로 바꿉니다.</p></div></footer>
+
+<nav class="dock" aria-label="빠른 연결">
+  <a href="#contact">이메일 문의</a>
+  <a class="main" href="#contact">전화 문의</a>
+</nav>
+
+<script>
+(() => {
+  const btns = document.querySelectorAll('.filters button'), rows = document.querySelectorAll('#rows tr');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const f = b.dataset.f;
+    rows.forEach(r => { const show = f === 'all' || r.dataset.f === f; r.hidden = !show; r.classList.remove('in'); if (show) { void r.offsetWidth; r.classList.add('in'); } });
+  }));
+})();
+</script>
+</body>
+</html>

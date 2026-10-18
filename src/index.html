@@ -1,0 +1,584 @@
+<title>살핌</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="가게와 회사를 위한 홈페이지 제작과 월 관리. 매주 점검하고, 고칠 곳은 이틀 안에 고칩니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@400;500;600;700;800&display=swap">
+<style>
+/* 레이아웃: 왼쪽 정렬, 넓은 여백. 첫 화면은 큰 문장 + 주간 점검 리포트 카드(상징). 색은 먹색 하나와 '정상 신호' 초록 하나 */
+:root {
+  --paper: #F7F7F4;      /* 바탕: 따뜻한 회백색 */
+  --surface: #FFFFFF;    /* 카드 면 */
+  --ink: #15171A;        /* 글자, 기본 버튼 */
+  --muted: #61656C;      /* 보조 글자 */
+  --faint: #8D9198;      /* 더 옅은 글자 */
+  --line: #E5E5E0;       /* 선 */
+  --ok: #109A63;         /* 정상 신호 초록: 체크·상태 점·진행 막대에만 */
+  --ok-tint: #E3F4EC;    /* 초록 옅은 면 */
+  --btn: #15171A; --btn-ink: #FFFFFF;
+  --band: #15171A; --band-ink: #F2F2EE;
+  --font: "Gothic A1", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --r-card: 18px; --r-btn: 12px;
+  --shadow: 0 1px 2px rgba(20, 22, 26, .05), 0 24px 48px -28px rgba(20, 22, 26, .28);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1113; --surface: #171A1E; --ink: #ECEEF0; --muted: #A0A6AD; --faint: #7A8088; --line: #2A2E34;
+    --ok: #2EC487; --ok-tint: #15281F; --btn: #ECEEF0; --btn-ink: #121417;
+    --band: #171A1E; --band-ink: #ECEEF0;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 24px 48px -28px rgba(0, 0, 0, .8); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1113; --surface: #171A1E; --ink: #ECEEF0; --muted: #A0A6AD; --faint: #7A8088; --line: #2A2E34;
+  --ok: #2EC487; --ok-tint: #15281F; --btn: #ECEEF0; --btn-ink: #121417;
+  --band: #171A1E; --band-ink: #ECEEF0;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 24px 48px -28px rgba(0, 0, 0, .8); color-scheme: dark;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.7; letter-spacing: -0.005em;
+  word-break: keep-all; overflow-wrap: anywhere; -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { line-height: 1.25; margin: 0; text-wrap: balance; letter-spacing: -0.03em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ok); outline-offset: 3px; border-radius: 6px; }
+
+/* 머리말 */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.mark { width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid var(--ink); display: grid; place-items: center; }
+.mark::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.brand-name { font-weight: 800; font-size: 21px; letter-spacing: -0.04em; }
+.top nav { display: flex; align-items: center; gap: 22px; font-size: 15px; }
+.top nav a:not(.btn) { text-decoration: none; color: var(--muted); transition: color .15s ease; }
+.top nav a:not(.btn):hover { color: var(--ink); }
+@media (max-width: 640px) { .top nav .opt { display: none; } }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 50px; padding: 0 22px; border-radius: var(--r-btn);
+  font: 700 16px/1 var(--font); letter-spacing: -0.01em; text-decoration: none; border: 1.5px solid var(--btn);
+  transition: transform .12s ease, background-color .15s ease, color .15s ease;
+}
+.btn:active { transform: scale(.97); }
+.btn-main { background: var(--btn); color: var(--btn-ink); }
+.btn-sub { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-sub:hover { border-color: var(--ink); }
+.top .btn { min-height: 40px; padding: 0 16px; font-size: 15px; }
+
+/* 첫 화면 */
+.hero { padding-block: 64px 80px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; }
+.live { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 12px 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.pulse { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok); animation: pulse 2.4s ease-out infinite; }
+@keyframes pulse { from { transform: scale(1); opacity: .5; } to { transform: scale(3); opacity: 0; } }
+.hero h1 { margin-top: 22px; font-size: clamp(38px, 6.4vw, 66px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.15; }
+.hero h1 span { display: block; }
+.hero .lead { margin-top: 22px; font-size: 18px; color: var(--muted); max-width: 31em; }
+.hero .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+.hero .place { margin-top: 18px; font-size: 14px; color: var(--faint); }
+
+/* 주간 점검 리포트 카드 */
+.report { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 24px; box-shadow: var(--shadow); }
+.report-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.report-title { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; }
+.report-site { margin-top: 2px; font-size: 14px; color: var(--muted); }
+.report-date { font-size: 14px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bar { margin-top: 18px; height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 100%; background: var(--ok); border-radius: inherit; transform-origin: 0 50%; }
+.report ul { list-style: none; margin: 10px 0 0; padding: 0; }
+.report li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.chk { width: 22px; height: 22px; border-radius: 50%; background: var(--ok); position: relative; }
+.chk::after { content: ""; position: absolute; left: 7.5px; top: 4px; width: 5px; height: 10px; border: solid var(--surface); border-width: 0 2.2px 2.2px 0; transform: rotate(45deg); }
+.item { font-size: 15px; min-width: 0; }
+.res { font-size: 14px; font-weight: 700; color: var(--ok); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.report-foot { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.done { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--ok-tint); color: var(--ok); font-size: 14px; font-weight: 700; }
+.done .pulse { width: 7px; height: 7px; }
+.week-dots { display: flex; gap: 6px; }
+.week-dots i { width: 18px; height: 4px; border-radius: 999px; background: var(--line); transition: background-color .3s ease; }
+.week-dots i.on { background: var(--ink); }
+
+/* 한 주 점검 동작: 막대가 차오르며 항목이 차례로 체크되고, 끝나면 '점검 완료' */
+.report-date, .report-site, .res, .item { transition: opacity .2s ease; }
+.report.turn .report-date, .report.turn .res, .report.turn #reqItem { opacity: 0; }
+.report.run .bar i { animation: fill 1.9s cubic-bezier(.4, 0, .2, 1) .2s both; }
+.report.run .chk { animation: pop .3s cubic-bezier(.2, .8, .3, 1.3) both; }
+.report.run .res { animation: show .3s ease-out both; }
+.report.run li:nth-child(1) .chk { animation-delay: .4s; }   .report.run li:nth-child(1) .res { animation-delay: .5s; }
+.report.run li:nth-child(2) .chk { animation-delay: .75s; }  .report.run li:nth-child(2) .res { animation-delay: .85s; }
+.report.run li:nth-child(3) .chk { animation-delay: 1.1s; }  .report.run li:nth-child(3) .res { animation-delay: 1.2s; }
+.report.run li:nth-child(4) .chk { animation-delay: 1.45s; } .report.run li:nth-child(4) .res { animation-delay: 1.55s; }
+.report.run li:nth-child(5) .chk { animation-delay: 1.8s; }  .report.run li:nth-child(5) .res { animation-delay: 1.9s; }
+.report.run .done { animation: show .35s ease-out 2.3s both; }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes show { from { opacity: 0; transform: translateX(-4px); } to { opacity: 1; transform: none; } }
+/* 업종별 샘플 */
+.work-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.shelf { margin-top: 28px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.tile { display: flex; flex-direction: column; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.tile:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--ink) 25%, var(--line)); }
+.tile:active { transform: scale(.98); }
+.mini { aspect-ratio: 4 / 3; max-width: 100%; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: #fff; color-scheme: light; }
+.mini .m-bar { height: 7px; background: #15171A; }
+.mini .m-top { padding: 12% 9% 9%; }
+.mini .m-name { font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-size: clamp(16px, 2.2vw, 22px); }
+.mini .m-pill { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+.mini .m-pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.mini .m-body { padding: 0 9%; display: grid; gap: 6px; }
+.mini .m-line { height: 6px; border-radius: 3px; background: #E7E7E2; }
+.mini .m-line.s { width: 60%; }
+.mini .m-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.mini .m-row i { aspect-ratio: 1; border-radius: 6px; }
+/* 바다식당 */
+.mini.r .m-top { background: #123A5A; color: #fff; }
+.mini.r .m-name { font-family: "Black Han Sans", var(--font); font-weight: 400; font-size: clamp(20px, 2.8vw, 28px); }
+.mini.r .m-pill { background: rgba(255,255,255,.14); color: #4BE08A; }
+.mini.r .m-row { margin-top: 10px; }
+.mini.r .m-row i:nth-child(1) { background: linear-gradient(135deg, #2E5E7E, #173B57); }
+.mini.r .m-row i:nth-child(2) { background: radial-gradient(circle, #E2523F 0 30%, #134460 32%); }
+.mini.r .m-row i:nth-child(3) { background: linear-gradient(135deg, #24506F, #102F47); }
+/* 솔빛수학교실 */
+.mini.a { background-color: #FAFBFE; background-image: linear-gradient(#E7ECF5 1px, transparent 1px), linear-gradient(90deg, #E7ECF5 1px, transparent 1px); background-size: 11px 11px; }
+.mini.a .m-name { color: #1C2B5A; }
+.mini.a .m-name em { font-style: normal; background: linear-gradient(transparent 55%, #FFE36E 55%); }
+.mini.a .m-grid { margin: 8px 9% 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; }
+.mini.a .m-grid i { height: 9px; border-radius: 2px; background: #fff; border: 1px solid #DDE2EE; }
+.mini.a .m-grid i.on { background: #FFE36E; border-color: #F0CF40; }
+.mini.a .m-grid i.h { background: #1C2B5A; border-color: #1C2B5A; }
+/* 한결내과의원 */
+.mini.c .m-top { color: #1E2A2F; }
+.mini.c .m-name { font-weight: 300; } .mini.c .m-name b { font-weight: 800; }
+.mini.c .m-panel { margin: 0 9%; padding: 8px 10px; border-radius: 10px; background: #F2F6F7; }
+.mini.c .m-pill { margin-top: 0; padding: 0; color: #1F9D63; background: none; }
+.mini.c .m-big { margin-top: 4px; font-weight: 800; font-size: clamp(12px, 1.6vw, 15px); color: #1E2A2F; }
+/* 동백토건 */
+.mini.k { background-color: #1D2125; background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 9px); }
+.mini.k .m-top { color: #fff; }
+.mini.k .m-name { font-weight: 900; }
+.mini.k .m-chips { margin: 0 9%; display: flex; gap: 4px; flex-wrap: wrap; }
+.mini.k .m-chips i { height: 12px; width: 26%; border-radius: 999px; background: rgba(255,255,255,.16); }
+.mini.k .m-chips i:first-child { background: #2D5277; }
+.mini.k .m-table { margin: 6px 9% 0; display: grid; gap: 4px; }
+.mini.k .m-table i { height: 6px; border-radius: 2px; background: rgba(255,255,255,.18); }
+.tile-body { padding: 16px 16px 18px; display: grid; gap: 4px; flex: 1; }
+.tile-kind { font-size: 13px; color: var(--muted); }
+.tile-name { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+.tile-feat { font-size: 14px; color: var(--muted); }
+.tile-open { margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+@media (max-width: 960px) { .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .shelf { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); padding-inline: max(20px, env(safe-area-inset-left, 0px)); padding-bottom: 8px; scroll-padding-inline: max(20px, env(safe-area-inset-left, 0px)); scrollbar-width: none; }
+  .shelf::-webkit-scrollbar { display: none; }
+  .tile { flex: 0 0 74%; scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) { .tile { transition: none; } }
+
+/* 공통 구역 */
+section.block { padding-block: 64px; border-top: 1px solid var(--line); }
+.block h2 { font-size: clamp(28px, 4.4vw, 40px); font-weight: 800; letter-spacing: -0.04em; }
+.block .intro { margin-top: 12px; color: var(--muted); max-width: 36em; }
+
+/* 관리 약속 */
+.promise { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.promise dl { margin: 0; display: grid; gap: 22px; }
+.promise dt { font-weight: 800; font-size: 19px; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; }
+.promise dt::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; }
+.promise dd { margin: 6px 0 0 18px; color: var(--muted); }
+.msg { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; box-shadow: var(--shadow); }
+.msg-cap { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.bubble { background: var(--paper); border: 1px solid var(--line); border-radius: 16px 16px 16px 4px; padding: 16px 18px; font-size: 15px; line-height: 1.75; }
+.bubble b { font-weight: 700; }
+.typing { display: inline-flex; gap: 5px; padding: 14px 16px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px 16px 16px 4px; }
+.typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: dot 1s ease-in-out infinite; }
+.typing span:nth-child(2) { animation-delay: .15s; } .typing span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 0%, 80%, 100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+.bubble.arrive { animation: arrive .35s cubic-bezier(.2, .8, .3, 1) both; transform-origin: 0 100%; }
+@keyframes arrive { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
+.bubble ul { margin: 8px 0; padding-left: 18px; }
+
+/* 가격 */
+.price-scroll { margin-top: 28px; overflow-x: auto; }
+table.price { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.price th, .price td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.price thead th { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; border-bottom: 2px solid var(--ink); }
+.price thead th span { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.price tbody th { font-weight: 700; width: 24%; }
+.price .amt { font-weight: 700; }
+.price .n { white-space: nowrap; }
+.price .sub { display: block; font-size: 13px; color: var(--muted); }
+.incl { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+.incl h3 { font-size: 18px; font-weight: 800; }
+.incl ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+.fine { margin-top: 20px; font-size: 14px; color: var(--muted); }
+
+/* 진행 순서: 실제 순서라서 번호를 씀 */
+ol.steps { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+ol.steps li::before { content: counter(s); width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; font-weight: 800; font-size: 15px; font-variant-numeric: tabular-nums; }
+.steps h3 { font-size: 19px; font-weight: 800; padding-top: 4px; }
+.steps p { color: var(--muted); margin-top: 4px; }
+.steps .when { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+/* 그만둘 때 */
+.quit { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.quit div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; }
+.quit h3 { font-size: 19px; font-weight: 800; }
+.quit p { margin-top: 8px; color: var(--muted); }
+
+/* 질문 */
+.faq { margin-top: 24px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative;
+  font-weight: 700; font-size: 18px; letter-spacing: -0.02em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 24px; color: var(--ink); transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding-bottom: 18px; color: var(--muted); max-width: 40em; }
+
+/* 연락처 */
+.contact { background: var(--band); color: var(--band-ink); border-top: 0; }
+.contact h2 { color: var(--band-ink); }
+.contact .intro { color: color-mix(in srgb, var(--band-ink) 75%, transparent); }
+.ways { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.way { border: 1px solid color-mix(in srgb, var(--band-ink) 25%, transparent); border-radius: var(--r-card); padding: 18px; display: grid; gap: 6px; }
+.way .k { font-size: 13px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
+.way .v { font-size: 18px; font-weight: 700; user-select: all; }
+.way .v.todo { font-weight: 400; font-size: 15px; border-bottom: 1.5px dashed color-mix(in srgb, var(--band-ink) 50%, transparent); justify-self: start; }
+.contact .hint { margin-top: 20px; font-size: 14px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
+
+footer { padding-block: 28px; font-size: 13px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .promise, .incl, .quit { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-block: 36px 48px; }
+  .hero .wrap { gap: 36px; }
+  .ways { grid-template-columns: minmax(0, 1fr); }
+  section.block { padding-block: 48px; }
+}
+@media (max-width: 520px) {
+  table.price { font-size: 14px; }
+  .price th, .price td { padding: 12px 6px; }
+  .price thead th { font-size: 16px; }
+  .price thead th span { font-size: 12px; }
+  .price tbody th { width: 28%; }
+}
+@media (max-width: 380px) {
+  .report { padding: 20px 18px; }
+  .hero .actions .btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .report.run .bar i, .report.run .chk, .report.run .res, .report.run .done, .pulse::after, .bubble.arrive, .typing span { animation: none; }
+  .report-date, .report-site, .res, .item, .week-dots i { transition: none; }
+  .btn, .faq summary::after { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="살핌 처음으로">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="brand-name">살핌</span>
+    </a>
+    <nav aria-label="바로가기">
+      <a class="opt" href="#work">샘플</a>
+      <a class="opt" href="#promise">관리</a>
+      <a class="opt" href="#price">가격</a>
+      <a class="opt" href="#steps">진행</a>
+      <a class="btn btn-main" href="#contact">상담 신청</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="live"><span class="pulse" aria-hidden="true"></span>매주 월요일 아침 점검</span>
+        <h1><span>홈페이지를 만들고,</span><span>매주 살핍니다.</span></h1>
+        <p class="lead">가게와 회사의 홈페이지를 만들어 드리고, 그다음부터는 제가 맡습니다. 사이트가 잘 열리는지, 휴대폰에서 깨지지 않는지 매주 확인하고, 고칠 곳은 말씀하신 날로부터 이틀 안에 고칩니다.</p>
+        <div class="actions">
+          <a class="btn btn-main" href="#contact">상담 신청하기</a>
+          <a class="btn btn-sub" href="#price">가격 보기</a>
+        </div>
+        <p class="place">부산 지역은 직접 찾아뵙고 상담합니다. 다른 지역은 전화와 메시지로 진행합니다.</p>
+      </div>
+
+      <figure class="report run" id="sheet" aria-label="주간 점검 리포트 예시">
+        <div class="report-head">
+          <div>
+            <p class="report-title">주간 점검 리포트</p>
+            <p class="report-site">바다식당 홈페이지 (예시)</p>
+          </div>
+          <span class="report-date" id="sheetDate">10월 19일 (월)</span>
+        </div>
+        <div class="bar" aria-hidden="true"><i></i></div>
+        <ul>
+          <li><span class="chk" aria-hidden="true"></span><span class="item">사이트 접속</span><span class="res">정상</span></li>
+          <li><span class="chk" aria-hidden="true"></span><span class="item">휴대폰 화면</span><span class="res">깨짐 없음</span></li>
+          <li><span class="chk" aria-hidden="true"></span><span class="item">링크와 사진</span><span class="res">모두 열림</span></li>
+          <li><span class="chk" aria-hidden="true"></span><span class="item">보안 인증서</span><span class="res" id="certRes">212일 남음</span></li>
+          <li><span class="chk" aria-hidden="true"></span><span class="item" id="reqItem">메뉴 가격 수정 요청</span><span class="res" id="reqRes">다음 날 반영</span></li>
+        </ul>
+        <div class="report-foot">
+          <span class="done"><span class="pulse" aria-hidden="true"></span>이번 주 점검 완료</span>
+          <span class="week-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="work-head">
+        <div>
+          <h2>업종별 샘플</h2>
+          <p class="intro">상담 때 보여 드리는 예시 홈페이지입니다. 모두 가상의 가게와 회사이고, 휴대폰으로 열어 보시면 실제 손님이 보는 화면 그대로입니다.</p>
+        </div>
+      </div>
+      <div class="shelf">
+        <a class="tile" href="samples/restaurant.html">
+          <div class="mini r" aria-hidden="true"><div class="m-top"><div class="m-name">바다식당</div><span class="m-pill">지금 영업 중</span></div><div class="m-body"><div class="m-row"><i></i><i></i><i></i></div></div></div>
+          <div class="tile-body"><span class="tile-kind">음식점</span><span class="tile-name">바다식당</span><span class="tile-feat">지금 영업 중인지 바로 보이고, 메뉴는 차림표처럼 읽힙니다.</span><span class="tile-open">샘플 열어 보기</span></div>
+        </a>
+        <a class="tile" href="samples/academy.html">
+          <div class="mini a" aria-hidden="true"><div class="m-top"><div class="m-name">한 반 <em>여섯 명</em></div></div><div class="m-grid"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i></div></div>
+          <div class="tile-body"><span class="tile-kind">학원, 교습소</span><span class="tile-name">솔빛수학교실</span><span class="tile-feat">반별 시간표와 남은 자리, 상담 절차를 한눈에 보여 줍니다.</span><span class="tile-open">샘플 열어 보기</span></div>
+        </a>
+        <a class="tile" href="samples/clinic.html">
+          <div class="mini c" aria-hidden="true"><div class="m-top"><div class="m-name">가까운 곳의<br><b>내과</b></div></div><div class="m-panel"><span class="m-pill">지금 진료 중</span><div class="m-big">09:00 ~ 18:30</div></div></div>
+          <div class="tile-body"><span class="tile-kind">병원, 의원</span><span class="tile-name">한결내과의원</span><span class="tile-feat">오늘 진료 시간과 점심시간이 첫 화면에 바로 나옵니다.</span><span class="tile-open">샘플 열어 보기</span></div>
+        </a>
+        <a class="tile" href="samples/company.html">
+          <div class="mini k" aria-hidden="true"><div class="m-top"><div class="m-name">동백토건</div></div><div class="m-chips"><i></i><i></i><i></i></div><div class="m-table"><i></i><i></i><i></i><i></i></div></div>
+          <div class="tile-body"><span class="tile-kind">회사</span><span class="tile-name">동백토건</span><span class="tile-feat">시공 실적을 공종별로 걸러 보고, 면허와 인증을 정리합니다.</span><span class="tile-open">샘플 열어 보기</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="promise">
+    <div class="wrap">
+      <h2>관리비에 담긴 약속</h2>
+      <p class="intro">홈페이지는 만든 뒤에 더 자주 손이 갑니다. 메뉴가 바뀌고, 휴무일이 생기고, 사진을 바꾸고 싶어집니다. 그때마다 다시 업체를 찾을 필요가 없게 합니다.</p>
+      <div class="promise">
+        <dl>
+          <div><dt>수정은 영업일 이틀 안에</dt><dd>문구, 사진, 메뉴, 실적 같은 간단한 수정은 문자로 보내 주시면 영업일 기준 이틀 안에 반영합니다.</dd></div>
+          <div><dt>문제가 생기면 그날 바로</dt><dd>사이트가 열리지 않는 일이 생기면 알게 된 날 바로 원인을 찾고, 진행 상황을 알려 드립니다.</dd></div>
+          <div><dt>매주 자동 점검</dt><dd>접속, 휴대폰 화면, 깨진 링크, 보안 인증서를 매주 확인합니다. 도메인 만료도 미리 챙깁니다.</dd></div>
+          <div><dt>매달 관리 보고</dt><dd>한 달에 한 번, 방문자 수와 점검 결과를 짧은 문자로 보내 드립니다.</dd></div>
+        </dl>
+        <div class="msg">
+          <p class="msg-cap">매달 받으시는 보고 문자 (예시)</p>
+          <div class="typing" id="typing" hidden aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="bubble" id="bubble">
+            <b>[살핌] 10월 관리 보고</b><br>
+            바다식당 사장님, 지난달 홈페이지 관리 내용입니다.
+            <ul>
+              <li>방문자 312명 (9월보다 40명 늘었습니다)</li>
+              <li>주간 점검 4번 모두 이상 없음</li>
+              <li>메뉴 가격 수정 1번 반영, 이번 달 1번 남음</li>
+            </ul>
+            연말 영업시간이 바뀌면 미리 알려 주세요. 공지로 올려 두겠습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="price">
+    <div class="wrap">
+      <h2>가격</h2>
+      <p class="intro">처음에 한 번에 내는 방식과, 제작비를 줄이고 매달 나눠 내는 방식이 있습니다. 관리 내용은 같습니다.</p>
+      <div class="price-scroll">
+        <table class="price">
+          <thead>
+            <tr>
+              <th scope="col">규모</th>
+              <th scope="col">일시불<span>제작비를 먼저 내는 방식</span></th>
+              <th scope="col">구독<span>12개월 약정, 매달 내는 방식</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">한 페이지<span class="sub">가게, 개인 사업자</span></th>
+              <td><span class="amt">제작 <span class="n">30~50만 원</span></span><span class="sub">관리 월 3만 원</span></td>
+              <td><span class="amt">제작 <span class="n">0~10만 원</span></span><span class="sub">관리 월 5~6만 원</span></td>
+            </tr>
+            <tr>
+              <th scope="row">5페이지 안팎<span class="sub">회사 소개</span></th>
+              <td><span class="amt">제작 <span class="n">50~100만 원</span></span><span class="sub">관리 월 3~5만 원</span></td>
+              <td><span class="amt">제작 <span class="n">0~20만 원</span></span><span class="sub">관리 월 6~8만 원</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="incl">
+        <div>
+          <h3>관리비에 들어 있는 것</h3>
+          <ul>
+            <li>도메인과 서버 유지</li>
+            <li>간단한 수정 월 1~2번 (구독은 월 2번)</li>
+            <li>매주 자동 점검과 문제 대응</li>
+            <li>매달 방문자 수와 관리 보고</li>
+            <li>구글, 네이버 검색 등록</li>
+          </ul>
+        </div>
+        <div>
+          <h3>따로 견적을 드리는 것</h3>
+          <ul>
+            <li>디자인을 처음부터 다시 하는 경우</li>
+            <li>게시판, 회원가입, 결제, 예약 기능</li>
+            <li>페이지 추가, 외국어 페이지</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine">상담 후 정확한 금액을 견적서로 드리고, 두 방식의 1년, 2년 합계를 나란히 적어 드립니다. 예약은 네이버 예약처럼 이미 쓰시는 서비스로 연결해 드립니다.</p>
+    </div>
+  </section>
+
+  <section class="block" id="steps">
+    <div class="wrap">
+      <h2>진행 순서</h2>
+      <p class="intro">자료가 빨리 모일수록 빨리 끝납니다. 보통 2~3주 걸립니다.</p>
+      <ol class="steps">
+        <li><div><h3>상담</h3><p>어떤 손님에게 보여줄 홈페이지인지, 꼭 들어가야 할 내용이 무엇인지 듣고 견적을 드립니다.</p></div></li>
+        <li><div><h3>자료 보내기</h3><p>로고, 사진, 영업시간, 소개 문구를 받습니다. 소개 문구가 없으면 초안을 써 드리고, 확인만 받습니다.</p><p class="when">필요한 자료 목록을 한 장으로 정리해 드립니다.</p></div></li>
+        <li><div><h3>시안 확인</h3><p>휴대폰으로 바로 열어 볼 수 있는 주소를 보내 드립니다. 시안 수정 2번, 완성 후 수정 1번이 포함됩니다.</p></div></li>
+        <li><div><h3>공개와 검색 등록</h3><p>주소를 연결하고 구글, 네이버에 등록합니다. 가게라면 네이버 지도에 홈페이지 주소도 넣어 드립니다.</p></div></li>
+        <li><div><h3>매주 점검 시작</h3><p>공개한 다음 주 월요일부터 점검표에 올라갑니다. 첫 관리 보고는 다음 달 초에 갑니다.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="quit">
+    <div class="wrap">
+      <h2>그만두고 싶을 때</h2>
+      <p class="intro">계약 전에 미리 알려 드리는 조건입니다. 견적서와 계약서에 같은 내용을 적습니다.</p>
+      <div class="quit">
+        <div>
+          <h3>일시불로 하신 경우</h3>
+          <p>관리는 한 달 전에 말씀하시면 언제든 그만둘 수 있습니다. 홈페이지 파일과 도메인은 그대로 넘겨 드립니다.</p>
+        </div>
+        <div>
+          <h3>구독으로 하신 경우</h3>
+          <p>12개월이 지나면 파일과 도메인을 그대로 넘겨 드립니다. 그 전에 그만두실 때의 정산 금액은 계약서에 숫자로 적어 둡니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+        <details>
+          <summary>제가 직접 고칠 수는 없나요?</summary>
+          <p>고치실 내용을 문자로 보내 주시는 방식이 가장 빠릅니다. 직접 관리하고 싶으시면 관리를 그만두실 때 파일을 넘겨 드리니, 다른 업체나 직접 관리로 옮기실 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>도메인은 누구 이름으로 등록하나요?</summary>
+          <p>가능하면 사장님 이름으로 등록하고, 저는 관리 권한만 받습니다. 홈페이지 주소가 사장님 것으로 남아야 나중에 걱정이 없습니다.</p>
+        </details>
+        <details>
+          <summary>무료 제작 지원사업과 무엇이 다른가요?</summary>
+          <p>지원사업은 제작에 초점이 있습니다. 살핌은 만든 뒤의 수정과 점검, 매달 보고까지 계속 맡는 것이 핵심입니다. 지원사업 대상이시면 함께 비교해 보시고 고르셔도 됩니다.</p>
+        </details>
+        <details>
+          <summary>홈페이지에 문의 양식을 넣을 수 있나요?</summary>
+          <p>기본은 전화, 문자, 카카오톡 채널, 지도 연결입니다. 문의 양식을 넣으면 개인정보 처리 안내 페이지도 함께 만들어야 해서 따로 상의해 정합니다.</p>
+        </details>
+        <details>
+          <summary>관리비가 밀리면 어떻게 되나요?</summary>
+          <p>먼저 문자로 안내를 드리고, 계약서에 적힌 날짜까지 기다립니다. 구독 방식은 그 뒤에 홈페이지를 잠시 멈출 수 있지만, 삭제하지 않고 입금되면 그날 다시 켭니다. 일시불 방식은 홈페이지를 멈추지 않습니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2>상담 신청</h2>
+      <p class="intro">업종과 지금 쓰시는 홈페이지(있다면 주소)를 알려 주시면, 어떤 구성이 맞을지와 대략의 금액을 먼저 말씀드립니다.</p>
+      <div class="ways">
+        <div class="way"><span class="k">전화·문자</span><span class="v todo">번호를 정하면 넣습니다</span></div>
+        <div class="way"><span class="k">카카오톡 채널</span><span class="v todo">채널을 만들면 넣습니다</span></div>
+        <div class="way"><span class="k">이메일</span><span class="v todo">주소를 정하면 넣습니다</span></div>
+      </div>
+      <p class="hint">상담은 무료이고, 상담만 받고 진행하지 않으셔도 괜찮습니다.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>살핌, 홈페이지 제작과 월 관리</span>
+    <span>사업자 정보는 등록 후 표기합니다</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 첫 화면 점검 리포트: 한 주씩 넘어가며 다시 점검 (화면에 보일 때만)
+  const sheet = document.getElementById('sheet');
+  const weeks = [
+    { date: '10월 19일 (월)', cert: '212일 남음', item: '메뉴 가격 수정 요청', res: '다음 날 반영' },
+    { date: '10월 26일 (월)', cert: '205일 남음', item: '휴무일 공지 요청', res: '당일 반영' },
+    { date: '11월 2일 (월)', cert: '198일 남음', item: '대표 사진 교체 요청', res: '다음 날 반영' },
+  ];
+  const $ = id => document.getElementById(id);
+  const dots = sheet.querySelectorAll('.week-dots i');
+  let w = 0, timer = null, visible = true;
+  function next() {
+    w = (w + 1) % weeks.length;
+    sheet.classList.add('turn');
+    setTimeout(() => {
+      const d = weeks[w];
+      $('sheetDate').textContent = d.date; $('certRes').textContent = d.cert;
+      $('reqItem').textContent = d.item; $('reqRes').textContent = d.res;
+      dots.forEach((el, i) => el.classList.toggle('on', i === w));
+      sheet.classList.remove('run'); void sheet.offsetWidth;
+      sheet.classList.remove('turn'); sheet.classList.add('run');
+    }, 220);
+  }
+  function play() { if (!timer && !still && visible && !document.hidden) timer = setInterval(next, 6500); }
+  function stop() { clearInterval(timer); timer = null; }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; visible ? play() : stop(); }, { threshold: .4 }).observe(sheet);
+  }
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : play());
+  play();
+
+  // 보고 문자: 화면에 들어오면 '입력 중' 다음에 도착
+  const bubble = $('bubble'), typing = $('typing');
+  if (!still && 'IntersectionObserver' in window && bubble.getBoundingClientRect().top > innerHeight) {
+    bubble.hidden = true;
+    const io = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return;
+      io.disconnect(); typing.hidden = false;
+      setTimeout(() => { typing.hidden = true; bubble.hidden = false; bubble.classList.add('arrive'); }, 900);
+    }, { threshold: .6 });
+    io.observe(bubble.parentElement);
+  }
+})();
+</script>

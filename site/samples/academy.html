@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>솔빛수학교실 (샘플)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 학원 샘플: 중학생 수학 교습소. 모눈 공책 위에 남색 펜과 노란 형광펜. 상징은 모눈 위 시간표 */
+:root {
+  color-scheme: light;
+  --paper: #FFFFFF; --grid: #E7ECF5; --ink: #1C2B5A; --text: #24283A; --muted: #5F6680; --line: #DDE2EE;
+  --hl: #FFE36E; --pen: #D9443A;
+  --font: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 16px/1.75 var(--font); word-break: keep-all; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+.wrap { max-width: 980px; margin: 0 auto; padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.graph { background-color: #FAFBFE; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 22px 22px; }
+
+.demo { background: #15171A; color: #F2F2EE; font-size: 13px; }
+.demo .wrap { display: flex; justify-content: space-between; gap: 12px; padding-block: 8px; }
+.demo a { color: #F2F2EE; font-weight: 700; white-space: nowrap; }
+
+.top .wrap { display: flex; justify-content: space-between; align-items: center; padding-block: 14px; }
+.logo { font-weight: 700; font-size: 19px; color: var(--ink); text-decoration: none; display: flex; gap: 8px; align-items: center; }
+.logo b { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--ink); color: #fff; font-size: 16px; }
+.top .tel { font-size: 14px; color: var(--muted); }
+
+.hero { padding-block: 44px 56px; border-block: 1px solid var(--line); }
+.hero h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.2; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; }
+.mark { background: linear-gradient(transparent 58%, var(--hl) 58%, var(--hl) 92%, transparent 92%); padding: 0 2px; }
+.hero .lead { margin-top: 18px; font-size: 18px; max-width: 28em; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 40px; align-items: center; }
+.shot { position: relative; margin: 0; border-radius: 18px; overflow: hidden; background: var(--grid); aspect-ratio: 4 / 5; box-shadow: 10px 10px 0 var(--hl); }
+.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.room { position: relative; margin: 26px 0 0; border-radius: 16px; overflow: hidden; background: var(--grid); aspect-ratio: 21 / 8; }
+.room img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.room figcaption { position: absolute; left: 14px; bottom: 12px; background: rgba(255, 255, 255, .92); color: var(--ink); font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
+.chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { background: #fff; border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 14px; font-weight: 600; font-size: 14px; color: var(--ink); }
+.acts { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-line { border: 1.5px solid var(--ink); color: var(--ink); background: #fff; }
+
+section.s { padding-block: 52px; }
+.s h2 { font-size: clamp(26px, 5vw, 34px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.s .sub { margin-top: 6px; color: var(--muted); }
+
+.ways { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.way { border-top: 3px solid var(--ink); padding-top: 14px; }
+.way h3 { font-size: 18px; color: var(--ink); }
+.way p { margin-top: 6px; color: var(--muted); font-size: 15px; }
+
+.tt-wrap { margin-top: 24px; overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+table.tt { width: 100%; min-width: 560px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tt th, .tt td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+.tt th:last-child, .tt td:last-child { border-right: 0; }
+.tt thead th { background: var(--ink); color: #fff; font-weight: 600; }
+.tt tbody th { text-align: left; color: var(--ink); white-space: nowrap; }
+.tt td.on { font-weight: 600; }
+.tt td.on span { background: var(--hl); padding: 2px 6px; border-radius: 4px; }
+.tt td.no { color: #B6BBCB; }
+.tt .seats { display: block; font-size: 12px; color: var(--pen); font-weight: 600; }
+
+.fee { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.fee div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+.fee .k { color: var(--muted); font-size: 14px; }
+.fee .v { font-size: 26px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.fee .v small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+.teacher { margin-top: 24px; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; align-items: start; }
+.face { aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--grid); display: grid; place-items: center; color: var(--muted); font-size: 12px; text-align: center; }
+.teacher h3 { font-size: 20px; color: var(--ink); }
+.teacher ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+footer .credit { margin-top: 6px; font-size: 12px; }
+
+.consult { background: var(--ink); color: #fff; border-radius: 18px; padding: 28px; margin-top: 24px; }
+.consult h3 { font-size: 22px; }
+.consult ol { margin: 14px 0 0; padding-left: 20px; }
+.consult li { margin-top: 6px; }
+.consult li::marker { color: var(--hl); font-weight: 700; }
+
+footer { padding-block: 28px 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: #fff; border-top: 1px solid var(--line);
+  padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.dock a { min-height: 50px; display: grid; place-items: center; border-radius: 10px; font-weight: 700; text-decoration: none; background: #EEF1F8; color: var(--ink); }
+.dock a.main { background: var(--ink); color: #fff; }
+@media (min-width: 900px) { .dock { left: auto; right: 24px; bottom: 24px; width: 340px; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 40px -20px rgba(28, 43, 90, .45); padding: 10px; } body { padding-bottom: 0; } }
+@media (max-width: 720px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; } .shot { aspect-ratio: 16 / 10; box-shadow: 6px 6px 0 var(--hl); } .room { aspect-ratio: 4 / 3; } .ways, .fee { grid-template-columns: minmax(0, 1fr); } .teacher { grid-template-columns: 84px minmax(0, 1fr); } .top .tel { display: none; } }
+@media (prefers-reduced-motion: no-preference) { .btn, .dock a { transition: transform .12s ease; } .btn:active, .dock a:active { transform: scale(.97); } }
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap"><span>살핌 샘플 사이트입니다. 가상의 교습소이고 연락처는 연결되지 않습니다.</span><a href="../" onclick="if (history.length > 1) { history.back(); return false; }">살핌으로</a></div></div>
+
+<header class="top graph">
+  <div class="wrap">
+    <a class="logo" href="#"><b>솔</b>솔빛수학교실</a>
+    <span class="tel">상담 051-000-0000</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero graph">
+    <div class="wrap">
+      <div>
+      <h1>중학생 수학,<br><span class="mark">한 반 여섯 명</span>까지만</h1>
+      <p class="lead">풀이를 외우는 대신, 왜 그렇게 푸는지 스스로 설명할 수 있을 때까지 다룹니다. 그래서 반마다 여섯 명만 받습니다.</p>
+      <div class="chips"><span>중1 ~ 중3</span><span>주 3회</span><span>무료 레벨 상담</span></div>
+      <div class="acts">
+        <a class="btn btn-ink" href="#consult">상담 예약하기</a>
+        <a class="btn btn-line" href="#time">시간표 보기</a>
+      </div>
+      </div>
+      <figure class="shot"><img src="https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=crop&w=900&q=70" alt="책상에 앉아 문제를 푸는 학생" onerror="this.remove()"></figure>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>수업은 이렇게 합니다</h2>
+      <figure class="room"><img src="https://images.unsplash.com/photo-1543959106-6a907a6b50cf?auto=format&fit=crop&w=1400&q=70" alt="책상이 놓인 밝은 교실" loading="lazy" onerror="this.remove()"><figcaption>여섯 자리 교실</figcaption></figure>
+      <div class="ways">
+        <div class="way"><h3>개념은 학생이 설명</h3><p>새 단원은 학생이 칠판 앞에서 직접 설명해 보고, 막히는 곳부터 다시 짚습니다.</p></div>
+        <div class="way"><h3>오답은 매주 검사</h3><p>틀린 문제는 오답 노트에 이유까지 적게 하고, 금요일마다 한 번 더 풀어 봅니다.</p></div>
+        <div class="way"><h3>매달 학부모 리포트</h3><p>출석, 과제, 단원별 이해도를 한 장으로 정리해 매달 첫 주에 보내 드립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s graph" id="time">
+    <div class="wrap">
+      <h2>시간표</h2>
+      <p class="sub">2학기 기준입니다. 남은 자리는 상담 때 다시 확인해 드립니다.</p>
+      <div class="tt-wrap">
+        <table class="tt">
+          <thead><tr><th scope="col">반</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">중1 기본<span class="seats">2자리 남음</span></th><td class="on"><span>16:30</span></td><td class="no">·</td><td class="on"><span>16:30</span></td><td class="no">·</td><td class="on"><span>16:30</span></td><td class="no">·</td></tr>
+            <tr><th scope="row">중2 기본<span class="seats">마감</span></th><td class="no">·</td><td class="on"><span>18:00</span></td><td class="no">·</td><td class="on"><span>18:00</span></td><td class="no">·</td><td class="on"><span>10:00</span></td></tr>
+            <tr><th scope="row">중2 심화<span class="seats">1자리 남음</span></th><td class="on"><span>18:30</span></td><td class="no">·</td><td class="on"><span>18:30</span></td><td class="no">·</td><td class="on"><span>18:30</span></td><td class="no">·</td></tr>
+            <tr><th scope="row">중3 심화<span class="seats">3자리 남음</span></th><td class="no">·</td><td class="on"><span>20:00</span></td><td class="no">·</td><td class="on"><span>20:00</span></td><td class="no">·</td><td class="on"><span>13:00</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>교습비</h2>
+      <div class="fee">
+        <div><p class="k">기본반 (주 3회, 한 번 90분)</p><p class="v">280,000원 <small>/ 월</small></p></div>
+        <div><p class="k">심화반 (주 3회, 한 번 120분)</p><p class="v">330,000원 <small>/ 월</small></p></div>
+      </div>
+      <p class="fine">교육지원청에 신고한 교습비입니다. 교재비는 따로이며, 상담 때 안내해 드립니다. (샘플 금액)</p>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>원장 소개</h2>
+      <div class="teacher">
+        <div class="face">원장 사진<br>(직접 촬영)</div>
+        <div>
+          <h3>김솔빛 원장</h3>
+          <ul>
+            <li>수학교육과 졸업, 중학교 수학 강의 12년</li>
+            <li>모든 반을 직접 가르치고, 학부모 상담도 직접 합니다</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="consult">
+    <div class="wrap">
+      <div class="consult">
+        <h3>상담은 이렇게 진행됩니다</h3>
+        <ol>
+          <li>전화나 문자로 원하시는 날짜를 알려 주세요.</li>
+          <li>교실에서 30분 정도 간단한 문제를 풀어 봅니다.</li>
+          <li>결과를 보고 맞는 반과 시작 단원을 함께 정합니다.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">솔빛수학교실은 가상의 교습소입니다. 교습소 등록번호와 주소는 실제 고객 정보로 바뀝니다. 홈페이지 제작과 관리: 살핌
+  <p class="credit">사진: <a href="https://unsplash.com/photos/DJWvzY4pkGU?utm_source=salpim&amp;utm_medium=referral">Greg Rosenke</a>, <a href="https://unsplash.com/photos/6rLqAxjR_Ew?utm_source=salpim&amp;utm_medium=referral">Jan Antonin Kolar</a> / <a href="https://unsplash.com/?utm_source=salpim&amp;utm_medium=referral">Unsplash</a>. 실제 교습소는 직접 찍은 사진으로 바꿉니다.</p></div></footer>
+
+<nav class="dock" aria-label="빠른 연결">
+  <a href="#consult">문자 상담</a>
+  <a class="main" href="#consult">전화 상담</a>
+</nav>
+</body>
+</html>
