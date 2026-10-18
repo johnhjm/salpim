@@ -212,7 +212,93 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 @media (prefers-reduced-motion: reduce) { .tile { transition: none; } }
 
+/* 첫 화면 약속 줄 */
+.facts { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); }
+.facts li { display: inline-flex; align-items: center; gap: 7px; }
+.tick { flex: none; width: 16px; height: 16px; border-radius: 50%; background: var(--ok); position: relative; }
+.tick::after { content: ""; position: absolute; left: 5.5px; top: 3px; width: 4px; height: 7.5px; border: solid var(--surface); border-width: 0 1.8px 1.8px 0; transform: rotate(45deg); }
+
+/* 만든 다음에 생기는 일 */
+.pains { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pain { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; display: grid; gap: 10px; align-content: start; }
+.pain .q { font-size: 13px; font-weight: 700; color: var(--faint); }
+.pain h3 { font-size: 20px; font-weight: 800; }
+.pain .a { margin-top: 4px; padding-top: 14px; border-top: 1px dashed var(--line); color: var(--muted); }
+.pain .a b { display: flex; align-items: center; gap: 8px; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
+.pain .a b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
+.weekly-note { margin-top: 10px; font-size: 15px; color: var(--faint); }
+
+/* 수정 대화 */
+.edits { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.chat { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; box-shadow: var(--shadow); display: grid; gap: 10px; }
+.chat .cap { font-size: 13px; color: var(--muted); }
+.chat .day { justify-self: center; font-size: 12px; color: var(--faint); margin-top: 4px; }
+.chat p { max-width: 86%; padding: 11px 15px; border-radius: 16px 16px 16px 4px; background: var(--paper); border: 1px solid var(--line); font-size: 15px; line-height: 1.6; }
+.chat p.me { justify-self: end; border-radius: 16px 16px 4px 16px; background: var(--btn); border-color: var(--btn); color: var(--btn-ink); }
+.chat small { display: block; margin-top: 3px; font-size: 11px; opacity: .65; font-variant-numeric: tabular-nums; }
+.scope h3 { font-size: 18px; font-weight: 800; }
+.scope ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+.scope > div + div { margin-top: 26px; }
+.scope .fine { margin-top: 10px; }
+
+/* 세 가지 방법 비교 */
+.cmp-wrap { margin-top: 28px; }
+table.cmp { width: 100%; border-collapse: collapse; font-size: 15px; }
+.cmp th, .cmp td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cmp thead th { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; border-bottom: 2px solid var(--ink); }
+.cmp tbody th { width: 18%; font-weight: 700; color: var(--muted); }
+.cmp td { color: var(--muted); }
+.cmp .us { background: var(--surface); color: var(--ink); font-weight: 600; }
+.cmp thead th.us { border-radius: 12px 12px 0 0; }
+.cmp-note { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+/* 1년, 2년 합계 */
+.sum { margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; }
+.sum-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sum-head h3 { font-size: 18px; font-weight: 800; }
+.seg { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+.seg button { font: 600 14px/1 var(--font); color: var(--muted); background: none; border: 0; padding: 0 14px; min-height: 36px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--btn); color: var(--btn-ink); }
+.sum-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.sum-grid div { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.sum-grid .k { display: block; font-size: 13px; color: var(--muted); }
+.sum-grid .v { display: block; margin-top: 2px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.sum-note { margin-top: 14px; font-size: 14px; color: var(--muted); }
+
+/* 약속하지 않는 것 */
+.honest { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.honest div { padding: 18px 0; border-top: 1px solid var(--line); }
+.honest h3 { font-size: 18px; font-weight: 800; }
+.honest p { margin-top: 6px; color: var(--muted); }
+
+/* 무료 점검 */
+.check-card { margin-top: 28px; border: 1px solid color-mix(in srgb, var(--band-ink) 25%, transparent); border-radius: var(--r-card); padding: 22px; background: color-mix(in srgb, var(--band-ink) 6%, transparent); }
+.check-card h3 { font-size: 21px; font-weight: 800; color: var(--band-ink); }
+.check-card p { margin-top: 6px; color: color-mix(in srgb, var(--band-ink) 75%, transparent); }
+.check-card ul { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.check-card li { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; padding: 5px 11px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--band-ink) 22%, transparent); }
+.check-card li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+
+@media (max-width: 860px) {
+  .edits { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 720px) {
+  .pains, .honest { grid-template-columns: minmax(0, 1fr); }
+  .cmp thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; width: auto; }
+  .cmp tr { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 14px 16px 6px; margin-bottom: 12px; }
+  .cmp tbody th { width: auto; padding: 0 0 6px; border: 0; color: var(--ink); font-size: 16px; font-weight: 800; }
+  .cmp td { padding: 8px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 10px; }
+  .cmp td:last-child { border-bottom: 0; }
+  .cmp td::before { content: attr(data-label); font-size: 13px; color: var(--faint); font-weight: 600; }
+  .cmp .us { background: none; }
+  .cmp td.us::before { color: var(--ink); }
+}
+@media (max-width: 480px) { .sum-grid { grid-template-columns: minmax(0, 1fr); } .sum-head .seg { width: 100%; } .seg button { flex: 1; } }
+
 /* 공통 구역 */
+section[id], #check, #sum { scroll-margin-top: 76px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 section.block { padding-block: 64px; border-top: 1px solid var(--line); }
 .block h2 { font-size: clamp(28px, 4.4vw, 40px); font-weight: 800; letter-spacing: -0.04em; }
 .block .intro { margin-top: 12px; color: var(--muted); max-width: 36em; }
@@ -348,8 +434,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a class="opt" href="#weekly">점검</a>
       <a class="opt" href="#work">샘플</a>
       <a class="opt" href="#promise">관리</a>
+      <a class="opt" href="#compare">비교</a>
       <a class="opt" href="#price">가격</a>
-      <a class="opt" href="#steps">진행</a>
       <a class="btn btn-main" href="#contact">상담 신청</a>
     </nav>
   </div>
@@ -364,9 +450,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p class="lead">가게와 회사의 홈페이지를 만들어 드리고, 그다음부터는 제가 맡습니다. 매주 월요일 아침 사이트가 잘 열리는지, 휴대폰에서 깨지지 않는지 확인하고, 바꿀 내용은 횟수 제한 없이 다음 영업일까지 고칩니다.</p>
         <div class="actions">
           <a class="btn btn-main" href="#contact">상담 신청하기</a>
-          <a class="btn btn-sub" href="#price">가격 보기</a>
+          <a class="btn btn-sub" href="#check">내 홈페이지 무료 점검</a>
         </div>
-        <p class="place">부산 지역은 직접 찾아뵙고 상담합니다. 다른 지역은 전화와 메시지로 진행합니다.</p>
+        <ul class="facts">
+          <li><span class="tick" aria-hidden="true"></span>매주 월요일 점검</li>
+          <li><span class="tick" aria-hidden="true"></span>작은 수정은 다음 영업일까지</li>
+          <li><span class="tick" aria-hidden="true"></span>그만두셔도 파일과 도메인은 그대로</li>
+          <li><span class="tick" aria-hidden="true"></span>부산은 직접 찾아뵙고 상담</li>
+        </ul>
       </div>
 
       <figure class="report run" id="sheet" aria-label="주간 점검 리포트 예시">
@@ -393,10 +484,24 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
+  <section class="block" id="pain">
+    <div class="wrap">
+      <h2>홈페이지는 만든 다음이<br>더 길게 남습니다</h2>
+      <p class="intro">가게와 회사 홈페이지에서 흔히 생기는 일입니다. 살핌은 이런 일이 생기지 않게 하려고 만든 서비스입니다.</p>
+      <div class="pains">
+        <article class="pain"><span class="q">흔한 일 1</span><h3>만든 업체와 연락이 닿지 않습니다</h3><p class="a"><b>살핌에서는</b>제가 먼저 연락드립니다. 매주 점검하고, 매달 초 보고 문자를 보냅니다.</p></article>
+        <article class="pain"><span class="q">흔한 일 2</span><h3>글자 하나 고치는 데도 견적부터 받습니다</h3><p class="a"><b>살핌에서는</b>가격, 사진, 영업시간 같은 작은 수정은 횟수를 세지 않고 다음 영업일까지 고칩니다.</p></article>
+        <article class="pain"><span class="q">흔한 일 3</span><h3>작년 휴무 공지가 아직 걸려 있습니다</h3><p class="a"><b>살핌에서는</b>날짜가 지난 내용을 월요일 점검에서 먼저 찾아, 내려도 되는지 여쭙니다.</p></article>
+        <article class="pain"><span class="q">흔한 일 4</span><h3>어느 날 홈페이지가 열리지 않습니다</h3><p class="a"><b>살핌에서는</b>도메인과 보안 인증서 만료일을 미리 챙기고, 문제가 보이면 그날 바로 고칩니다.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="weekly">
     <div class="wrap">
       <h2>매주 월요일 아침,<br>빠짐없이 살핍니다</h2>
       <p class="intro">홈페이지는 조용히 고장 납니다. 사진 한 장이 안 열리거나 전화 버튼이 엉뚱한 번호로 걸려도 손님은 말해 주지 않습니다. 사장님이 알아채기 전에 제가 먼저 찾습니다.</p>
+      <p class="weekly-note">다리와 건물을 정해진 날 정해진 항목으로 점검하듯, 홈페이지도 같은 방식으로 살핍니다.</p>
       <div class="weekly-grid">
         <ol class="checks">
           <li><span class="chk" aria-hidden="true"></span><div><b>사이트가 열리는지</b><span class="d">첫 화면이 제대로, 빨리 뜨는지 확인합니다.</span></div></li>
@@ -477,6 +582,67 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
+  <section class="block" id="edits">
+    <div class="wrap">
+      <h2>작은 수정은 정말<br>횟수를 세지 않습니다</h2>
+      <p class="intro">바꿀 내용이 생기면 문자 한 통이면 됩니다. 이번 달에 몇 번 남았는지 따질 필요가 없습니다.</p>
+      <div class="edits">
+        <figure class="chat" aria-label="수정 요청 문자 예시">
+          <span class="cap">수정 요청은 이렇게 오갑니다 (예시)</span>
+          <span class="day">화요일</span>
+          <p class="me">내일부터 물회가 17,000원이에요. 바꿔 주실 수 있나요?<small>오후 9:12</small></p>
+          <p>네, 내일 오전까지 바꿔 두겠습니다.<small>오후 9:20</small></p>
+          <span class="day">수요일</span>
+          <p>바꿨습니다. 대표 메뉴와 전체 메뉴 두 곳 모두 17,000원으로 나옵니다.<small>오전 9:05</small></p>
+          <p class="me">감사합니다!<small>오전 9:31</small></p>
+        </figure>
+        <div class="scope">
+          <div>
+            <h3>언제든, 몇 번이든</h3>
+            <ul>
+              <li>메뉴, 가격, 영업시간, 휴무 공지 바꾸기</li>
+              <li>사진 바꾸기, 새 사진 넣기</li>
+              <li>소개 문구, 연락처, 지도 링크 고치기</li>
+              <li>실적, 강좌, 시간표 줄 더하기</li>
+            </ul>
+          </div>
+          <div>
+            <h3>미리 견적을 드리고, 동의하시면 진행</h3>
+            <ul>
+              <li>새 페이지 만들기</li>
+              <li>구성이나 디자인 바꾸기</li>
+              <li>예약, 결제, 게시판 같은 새 기능</li>
+            </ul>
+            <p class="fine">같은 날 들어온 여러 건은 한 번에 묶어 반영합니다. 견적이 필요한 일은 말씀 없이 진행하지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="compare">
+    <div class="wrap">
+      <h2>세 가지 방법을 나란히 놓으면</h2>
+      <p class="intro">홈페이지를 갖는 방법은 크게 셋입니다. 어느 쪽이 맞는지는 사장님 사정에 따라 다릅니다.</p>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th scope="col"><span class="sr">항목</span></th><th scope="col">직접 만들기<br><small>홈페이지 빌더</small></th><th scope="col">한 번 만들어 주는 업체</th><th scope="col" class="us">살핌</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">처음 드는 돈</th><td data-label="직접 만들기">적음, 매달 사용료</td><td data-label="제작 업체">제작비를 한 번에</td><td data-label="살핌" class="us">일시불과 구독 중에서 고르기</td></tr>
+            <tr><th scope="row">만드는 사람</th><td data-label="직접 만들기">사장님</td><td data-label="제작 업체">업체</td><td data-label="살핌" class="us">살핌, 사장님은 자료와 확인만</td></tr>
+            <tr><th scope="row">만든 뒤 수정</th><td data-label="직접 만들기">사장님이 직접</td><td data-label="제작 업체">건마다 견적인 경우가 많음</td><td data-label="살핌" class="us">작은 수정 횟수 제한 없이</td></tr>
+            <tr><th scope="row">고장 확인</th><td data-label="직접 만들기">사장님이 발견해야 함</td><td data-label="제작 업체">계약에 따라 다름</td><td data-label="살핌" class="us">매주 월요일 점검</td></tr>
+            <tr><th scope="row">도메인과 인증서</th><td data-label="직접 만들기">직접 챙김</td><td data-label="제작 업체">계약에 따라 다름</td><td data-label="살핌" class="us">만료 전에 미리 챙김</td></tr>
+            <tr><th scope="row">그만둘 때</th><td data-label="직접 만들기">다른 곳으로 옮기기 어려운 경우가 많음</td><td data-label="제작 업체">계약에 따라 다름</td><td data-label="살핌" class="us">파일과 도메인을 그대로 넘겨 드림</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">시간이 넉넉하고 직접 자주 고치고 싶으시면 직접 만들기가 더 잘 맞을 수 있습니다. 만드는 것도, 그다음 관리도 맡기고 싶으실 때 살핌을 찾아 주세요.</p>
+    </div>
+  </section>
+
   <section class="block" id="price">
     <div class="wrap">
       <h2>가격</h2>
@@ -503,6 +669,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="sum" id="sum">
+        <div class="sum-head">
+          <h3>1년, 2년 합계로 보면</h3>
+          <div class="seg" role="group" aria-label="규모 고르기">
+            <button type="button" data-size="one" aria-pressed="true">한 페이지</button>
+            <button type="button" data-size="five" aria-pressed="false">5페이지 안팎</button>
+          </div>
+        </div>
+        <div class="sum-grid" aria-live="polite">
+          <div><span class="k">일시불, 1년</span><span class="v" id="s1a">66~86만 원</span></div>
+          <div><span class="k">구독, 1년</span><span class="v" id="s1b">60~82만 원</span></div>
+          <div><span class="k">일시불, 2년</span><span class="v" id="s2a">102~122만 원</span></div>
+          <div><span class="k">구독, 2년</span><span class="v" id="s2b">120~154만 원</span></div>
+        </div>
+        <p class="sum-note">제작비와 관리비를 더한 금액입니다. 1년만 보면 구독이, 2년 넘게 쓰시면 대체로 일시불이 덜 듭니다. 오래 쓰실 계획이면 일시불을 먼저 권해 드립니다.</p>
       </div>
       <div class="incl">
         <div>
@@ -533,12 +715,25 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h2>진행 순서</h2>
       <p class="intro">자료가 빨리 모일수록 빨리 끝납니다. 보통 2~3주 걸립니다.</p>
       <ol class="steps">
-        <li><div><h3>상담</h3><p>어떤 손님에게 보여줄 홈페이지인지, 꼭 들어가야 할 내용이 무엇인지 듣고 견적을 드립니다.</p></div></li>
+        <li><div><h3>상담</h3><p>어떤 손님에게 보여줄 홈페이지인지, 꼭 들어가야 할 내용이 무엇인지 듣고 견적을 드립니다.</p><p class="when">30분 정도, 견적서는 두 방식의 1년, 2년 합계까지 적어 드립니다.</p></div></li>
         <li><div><h3>자료 보내기</h3><p>로고, 사진, 영업시간, 소개 문구를 받습니다. 소개 문구가 없으면 초안을 써 드리고, 확인만 받습니다.</p><p class="when">필요한 자료 목록을 한 장으로 정리해 드립니다.</p></div></li>
-        <li><div><h3>시안 확인</h3><p>휴대폰으로 바로 열어 볼 수 있는 주소를 보내 드립니다. 시안 수정 2번, 완성 후 수정 1번이 포함됩니다.</p></div></li>
-        <li><div><h3>공개와 검색 등록</h3><p>주소를 연결하고 구글, 네이버에 등록합니다. 가게라면 네이버 지도에 홈페이지 주소도 넣어 드립니다.</p></div></li>
+        <li><div><h3>시안 확인</h3><p>휴대폰으로 바로 열어 볼 수 있는 주소를 보내 드립니다. 시안 수정 2번, 완성 후 수정 1번이 포함됩니다.</p><p class="when">자료를 받고 1주 안팎</p></div></li>
+        <li><div><h3>공개와 검색 등록</h3><p>주소를 연결하고 구글, 네이버에 등록합니다. 가게라면 네이버 지도에 홈페이지 주소도 넣어 드립니다.</p><p class="when">시안을 확정하고 1~2일</p></div></li>
         <li><div><h3>매주 점검 시작</h3><p>공개한 다음 주 월요일부터 점검표에 올라갑니다. 첫 관리 보고는 다음 달 초에 갑니다.</p></div></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="block" id="honest">
+    <div class="wrap">
+      <h2>약속하지 않는 것도<br>미리 말씀드립니다</h2>
+      <p class="intro">지킬 수 있는 것만 약속합니다.</p>
+      <div class="honest">
+        <div><h3>검색 1위</h3><p>상호명으로 검색하면 보통 며칠 안에 나옵니다. 하지만 일반 검색어의 순위는 약속하지 않습니다.</p></div>
+        <div><h3>매출과 방문자 수</h3><p>늘면 좋겠지만 약속하지 않습니다. 대신 매달 실제 방문자 수를 그대로 알려 드립니다.</p></div>
+        <div><h3>지어낸 후기와 실적</h3><p>사장님 홈페이지에도, 살핌 홈페이지에도 넣지 않습니다. 지금 보시는 샘플도 모두 가상이라고 표시해 두었습니다.</p></div>
+        <div><h3>말씀 없이 하는 유료 작업</h3><p>견적이 필요한 일은 먼저 여쭙고, 동의하시기 전에는 시작하지 않습니다.</p></div>
+      </div>
     </div>
   </section>
 
@@ -599,6 +794,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <h2>상담 신청</h2>
       <p class="intro">업종과 지금 쓰시는 홈페이지(있다면 주소)를 알려 주시면, 어떤 구성이 맞을지와 대략의 금액을 먼저 말씀드립니다.</p>
+      <div class="check-card" id="check">
+        <h3>지금 쓰시는 홈페이지, 한 번 무료로 점검해 드립니다</h3>
+        <p>주소만 보내 주시면 살핌이 매주 하는 점검을 한 번 해서 결과를 문자로 보내 드립니다. 살핌으로 옮기지 않으셔도 괜찮습니다.</p>
+        <ul aria-label="무료 점검 항목">
+          <li>사이트 접속</li><li>휴대폰 화면</li><li>링크와 사진</li><li>전화, 지도 버튼</li><li>인증서와 도메인</li><li>지난 내용</li>
+        </ul>
+      </div>
       <div class="ways">
         <div class="way"><span class="k">전화·문자</span><span class="v todo">번호를 정하면 넣습니다</span></div>
         <div class="way"><span class="k">카카오톡 채널</span><span class="v todo">채널을 만들면 넣습니다</span></div>
@@ -623,11 +825,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
   // 첫 화면 점검 리포트: 한 주씩 넘어가며 다시 점검 (화면에 보일 때만)
   const sheet = document.getElementById('sheet');
+  // 리포트 날짜는 한국 날짜 기준 이번 주(또는 다가오는) 월요일부터 세 주
+  const now = new Date(Date.now() + 9 * 3600e3);
+  const mon0 = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) + ((8 - now.getUTCDay()) % 7) * 864e5;
+  const md = k => { const d = new Date(mon0 + k * 7 * 864e5); return (d.getUTCMonth() + 1) + '월 ' + d.getUTCDate() + '일 (월)'; };
   const weeks = [
-    { date: '10월 19일 (월)', cert: '212일 남음', item: '메뉴 가격 수정 요청', res: '다음 날 반영' },
-    { date: '10월 26일 (월)', cert: '205일 남음', item: '휴무일 공지 요청', res: '당일 반영' },
-    { date: '11월 2일 (월)', cert: '198일 남음', item: '대표 사진 교체 요청', res: '다음 날 반영' },
+    { date: md(0), cert: '212일 남음', item: '메뉴 가격 수정 요청', res: '다음 날 반영' },
+    { date: md(1), cert: '205일 남음', item: '휴무일 공지 요청', res: '당일 반영' },
+    { date: md(2), cert: '198일 남음', item: '대표 사진 교체 요청', res: '다음 날 반영' },
   ];
+  document.getElementById('sheetDate').textContent = weeks[0].date;
   const $ = id => document.getElementById(id);
   const dots = sheet.querySelectorAll('.week-dots i');
   let w = 0, timer = null, visible = true;
@@ -660,6 +867,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     const n = Math.min(52, Math.max(0, Math.floor((kst - firstMon) / (7 * 864e5)) + 1));
     ws.forEach((el, i) => { el.classList.toggle('on', i < n); el.classList.toggle('now', i === n - 1); });
   }
+
+  // 1년, 2년 합계: 규모를 바꾸면 숫자만 바꾼다 (제작비 + 관리비 × 개월, 만 원)
+  const SUM = { one: ['66~86', '60~82', '102~122', '120~154'], five: ['86~160', '72~116', '122~220', '144~212'] };
+  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    ['s1a', 's1b', 's2a', 's2b'].forEach((id, i) => { $(id).textContent = SUM[b.dataset.size][i] + '만 원'; });
+  }));
 
   // 보고 문자: 화면에 들어오면 '입력 중' 다음에 도착
   const bubble = $('bubble'), typing = $('typing');
