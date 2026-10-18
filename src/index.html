@@ -175,6 +175,18 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .mini.k .m-chips i:first-child { background: #2D5277; }
 .mini.k .m-table { margin: 6px 9% 0; display: grid; gap: 4px; }
 .mini.k .m-table i { height: 6px; border-radius: 2px; background: rgba(255,255,255,.18); }
+/* 사진 썸네일: 사진이 안 열리면(미리보기 등) 지우고 아래 도식이 보인다 */
+.mini .shot { position: absolute; inset: 0; z-index: 1; background: #1D2125; }
+.mini .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.mini .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.66) 100%); }
+.mini .cap { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2; color: #fff; display: grid; gap: 6px; justify-items: start; }
+.mini .cap b { font-size: clamp(18px, 2.3vw, 22px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.mini .cap span { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); font-size: 11px; font-weight: 700; }
+.mini .cap span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #4BE08A; }
+.tile:hover .mini .shot img { transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) { .mini .shot img { transition: none; } }
+.credit { font-size: 12px; color: var(--faint); }
+.credit a { color: inherit; }
 .tile-body { padding: 16px 16px 18px; display: grid; gap: 4px; flex: 1; }
 .tile-kind { font-size: 13px; color: var(--muted); }
 .tile-name { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
@@ -356,19 +368,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <div class="shelf">
         <a class="tile" href="samples/restaurant.html">
-          <div class="mini r" aria-hidden="true"><div class="m-top"><div class="m-name">바다식당</div><span class="m-pill">지금 영업 중</span></div><div class="m-body"><div class="m-row"><i></i><i></i><i></i></div></div></div>
+          <div class="mini r" aria-hidden="true"><div class="shot"><img src="https://images.unsplash.com/photo-1661366394743-fe30fe478ef7?auto=format&fit=crop&w=720&q=70" alt="" loading="lazy" onerror="this.parentNode.nextSibling.remove();this.parentNode.remove()"></div><div class="cap"><b>바다식당</b><span>지금 영업 중</span></div><div class="m-top"><div class="m-name">바다식당</div><span class="m-pill">지금 영업 중</span></div><div class="m-body"><div class="m-row"><i></i><i></i><i></i></div></div></div>
           <div class="tile-body"><span class="tile-kind">음식점</span><span class="tile-name">바다식당</span><span class="tile-feat">지금 영업 중인지 바로 보이고, 메뉴는 차림표처럼 읽힙니다.</span><span class="tile-open">샘플 열어 보기</span></div>
         </a>
         <a class="tile" href="samples/academy.html">
-          <div class="mini a" aria-hidden="true"><div class="m-top"><div class="m-name">한 반 <em>여섯 명</em></div></div><div class="m-grid"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i></div></div>
+          <div class="mini a" aria-hidden="true"><div class="shot"><img src="https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=crop&w=720&q=70" alt="" loading="lazy" onerror="this.parentNode.nextSibling.remove();this.parentNode.remove()"></div><div class="cap"><b>솔빛수학교실</b><span>남은 자리 표시</span></div><div class="m-top"><div class="m-name">한 반 <em>여섯 명</em></div></div><div class="m-grid"><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i></div></div>
           <div class="tile-body"><span class="tile-kind">학원, 교습소</span><span class="tile-name">솔빛수학교실</span><span class="tile-feat">반별 시간표와 남은 자리, 상담 절차를 한눈에 보여 줍니다.</span><span class="tile-open">샘플 열어 보기</span></div>
         </a>
         <a class="tile" href="samples/clinic.html">
-          <div class="mini c" aria-hidden="true"><div class="m-top"><div class="m-name">가까운 곳의<br><b>내과</b></div></div><div class="m-panel"><span class="m-pill">지금 진료 중</span><div class="m-big">09:00 ~ 18:30</div></div></div>
+          <div class="mini c" aria-hidden="true"><div class="shot"><img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=720&q=70" alt="" loading="lazy" onerror="this.parentNode.nextSibling.remove();this.parentNode.remove()"></div><div class="cap"><b>한결내과의원</b><span>오늘 진료 안내</span></div><div class="m-top"><div class="m-name">가까운 곳의<br><b>내과</b></div></div><div class="m-panel"><span class="m-pill">지금 진료 중</span><div class="m-big">09:00 ~ 18:30</div></div></div>
           <div class="tile-body"><span class="tile-kind">병원, 의원</span><span class="tile-name">한결내과의원</span><span class="tile-feat">오늘 진료 시간과 점심시간이 첫 화면에 바로 나옵니다.</span><span class="tile-open">샘플 열어 보기</span></div>
         </a>
         <a class="tile" href="samples/company.html">
-          <div class="mini k" aria-hidden="true"><div class="m-top"><div class="m-name">동백토건</div></div><div class="m-chips"><i></i><i></i><i></i></div><div class="m-table"><i></i><i></i><i></i><i></i></div></div>
+          <div class="mini k" aria-hidden="true"><div class="shot"><img src="https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=crop&w=720&q=70" alt="" loading="lazy" onerror="this.parentNode.nextSibling.remove();this.parentNode.remove()"></div><div class="cap"><b>동백토건</b><span>공종별 실적</span></div><div class="m-top"><div class="m-name">동백토건</div></div><div class="m-chips"><i></i><i></i><i></i></div><div class="m-table"><i></i><i></i><i></i><i></i></div></div>
           <div class="tile-body"><span class="tile-kind">회사</span><span class="tile-name">동백토건</span><span class="tile-feat">시공 실적을 공종별로 걸러 보고, 면허와 인증을 정리합니다.</span><span class="tile-open">샘플 열어 보기</span></div>
         </a>
       </div>
@@ -532,6 +544,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <span>살핌, 홈페이지 제작과 월 관리</span>
     <span>사업자 정보는 등록 후 표기합니다</span>
+    <span class="credit">샘플 사진: <a href="https://unsplash.com/?utm_source=salpim&amp;utm_medium=referral">Unsplash</a> 작가들, 각 샘플 아래에 표기</span>
   </div>
 </footer>
 
