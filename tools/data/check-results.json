@@ -1,23 +1,11 @@
 {
- "checkedAt": "2026-11-16T04:50:50.481Z",
+ "checkedAt": "2026-11-16T04:53:32.465Z",
  "kstDate": "2026-11-16",
  "base": "https://salpim.pages.dev",
- "total": 95,
- "passed": 92,
- "failed": 3,
+ "total": 96,
+ "passed": 95,
+ "failed": 1,
  "fails": [
-  {
-   "group": "③ 링크와 사진",
-   "name": "첫 페이지 사진 4장",
-   "ok": false,
-   "detail": "https://images.unsplash.com/photo-1661366394743-fe30fe478ef7?auto=format&fit=cro, https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=cro, https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=cro, https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=cro"
-  },
-  {
-   "group": "③ 링크와 사진",
-   "name": "바깥 링크 10개",
-   "ok": false,
-   "detail": "https://unsplash.com/?utm_source=salpim&utm_medium=referral → 403, https://unsplash.com/photos/oXULSch338E?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/o6wErKlvxS4?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/5v29wo-fF0g?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/icRCFbPR0_0?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DJWvzY4pkGU?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/6rLqAxjR_Ew?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/tl447mekwuQ?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/YajbkTmR2uw?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DWp5nUqTn6E?utm_source=salpim&utm_medium=r → 403"
-  },
   {
    "group": "④ 전화·지도·예약 버튼",
    "name": "연락 방법이 하나 이상 연결됨",
@@ -54,13 +42,13 @@
    "group": "① 사이트 접속",
    "name": "첫 페이지 열림",
    "ok": true,
-   "detail": "436ms"
+   "detail": "427ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "첫 페이지 속도",
    "ok": true,
-   "detail": "436ms (기준 4초)"
+   "detail": "427ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -95,8 +83,8 @@
   {
    "group": "③ 링크와 사진",
    "name": "첫 페이지 사진 4장",
-   "ok": false,
-   "detail": "https://images.unsplash.com/photo-1661366394743-fe30fe478ef7?auto=format&fit=cro, https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=cro, https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=cro, https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=cro"
+   "ok": true,
+   "detail": ""
   },
   {
    "group": "③ 링크와 사진",
@@ -144,13 +132,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 음식점 열림",
    "ok": true,
-   "detail": "400ms"
+   "detail": "221ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 음식점 속도",
    "ok": true,
-   "detail": "400ms (기준 4초)"
+   "detail": "221ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -234,13 +222,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 학원 열림",
    "ok": true,
-   "detail": "180ms"
+   "detail": "193ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 학원 속도",
    "ok": true,
-   "detail": "180ms (기준 4초)"
+   "detail": "193ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -324,13 +312,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 병원 열림",
    "ok": true,
-   "detail": "383ms"
+   "detail": "203ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 병원 속도",
    "ok": true,
-   "detail": "383ms (기준 4초)"
+   "detail": "203ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -414,13 +402,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 회사 열림",
    "ok": true,
-   "detail": "369ms"
+   "detail": "222ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 회사 속도",
    "ok": true,
-   "detail": "369ms (기준 4초)"
+   "detail": "222ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -479,14 +467,20 @@
   {
    "group": "③ 링크와 사진",
    "name": "바깥 링크 10개",
-   "ok": false,
-   "detail": "https://unsplash.com/?utm_source=salpim&utm_medium=referral → 403, https://unsplash.com/photos/oXULSch338E?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/o6wErKlvxS4?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/5v29wo-fF0g?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/icRCFbPR0_0?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DJWvzY4pkGU?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/6rLqAxjR_Ew?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/tl447mekwuQ?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/YajbkTmR2uw?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DWp5nUqTn6E?utm_source=salpim&utm_medium=r → 403"
+   "ok": true,
+   "detail": "10개는 상대 사이트가 자동 점검을 막아 확인 못 함(고장 아님)"
   },
   {
    "group": "④ 전화·지도·예약 버튼",
    "name": "연락 방법이 하나 이상 연결됨",
    "ok": false,
    "detail": "아직 연락처가 비어 있음 (상담 신청을 받을 수 없음)"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 샘플 카드 사진",
+   "ok": true,
+   "detail": "카드 4개 중 사진 4장"
   },
   {
    "group": "⑥ 지난 내용",
