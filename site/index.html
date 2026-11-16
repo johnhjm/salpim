@@ -396,11 +396,16 @@ ol.steps li::before { content: counter(s); width: 36px; height: 36px; border-rad
 .contact { background: var(--band); color: var(--band-ink); border-top: 0; }
 .contact h2 { color: var(--band-ink); }
 .contact .intro { color: color-mix(in srgb, var(--band-ink) 75%, transparent); }
-.ways { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ways { margin-top: 28px; display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 16px; }
 .way { border: 1px solid color-mix(in srgb, var(--band-ink) 25%, transparent); border-radius: var(--r-card); padding: 18px; display: grid; gap: 6px; }
 .way .k { font-size: 13px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
 .way .v { font-size: 18px; font-weight: 700; user-select: all; }
 .way .v.todo { font-weight: 400; font-size: 15px; border-bottom: 1.5px dashed color-mix(in srgb, var(--band-ink) 50%, transparent); justify-self: start; }
+.way .v { overflow-wrap: anywhere; }
+.way .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.way .acts a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--band-ink); color: var(--band); font-size: 15px; font-weight: 700; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: transform .15s ease, opacity .15s ease; }
+.way .acts a + a { background: transparent; color: var(--band-ink); border: 1px solid color-mix(in srgb, var(--band-ink) 40%, transparent); }
+.way .acts a:active { transform: scale(.97); opacity: .85; }
 .contact .hint { margin-top: 20px; font-size: 14px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
 
 footer { padding-block: 28px; font-size: 13px; color: var(--muted); }

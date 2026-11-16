@@ -384,11 +384,16 @@ ol.steps li::before { content: counter(s); width: 36px; height: 36px; border-rad
 .contact { background: var(--band); color: var(--band-ink); border-top: 0; }
 .contact h2 { color: var(--band-ink); }
 .contact .intro { color: color-mix(in srgb, var(--band-ink) 75%, transparent); }
-.ways { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ways { margin-top: 28px; display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 16px; }
 .way { border: 1px solid color-mix(in srgb, var(--band-ink) 25%, transparent); border-radius: var(--r-card); padding: 18px; display: grid; gap: 6px; }
 .way .k { font-size: 13px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
 .way .v { font-size: 18px; font-weight: 700; user-select: all; }
 .way .v.todo { font-weight: 400; font-size: 15px; border-bottom: 1.5px dashed color-mix(in srgb, var(--band-ink) 50%, transparent); justify-self: start; }
+.way .v { overflow-wrap: anywhere; }
+.way .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.way .acts a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--band-ink); color: var(--band); font-size: 15px; font-weight: 700; text-decoration: none; -webkit-tap-highlight-color: transparent; transition: transform .15s ease, opacity .15s ease; }
+.way .acts a + a { background: transparent; color: var(--band-ink); border: 1px solid color-mix(in srgb, var(--band-ink) 40%, transparent); }
+.way .acts a:active { transform: scale(.97); opacity: .85; }
 .contact .hint { margin-top: 20px; font-size: 14px; color: color-mix(in srgb, var(--band-ink) 70%, transparent); }
 
 footer { padding-block: 28px; font-size: 13px; color: var(--muted); }
@@ -812,11 +817,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li>사이트 접속</li><li>휴대폰 화면</li><li>링크와 사진</li><li>전화, 지도 버튼</li><li>인증서와 도메인</li><li>지난 내용</li>
         </ul>
       </div>
+      <!--연락처 시작: tools/build.mjs 의 CONTACT 를 채우면 이 자리가 실제 연락처로 바뀐다-->
       <div class="ways">
         <div class="way"><span class="k">전화·문자</span><span class="v todo">번호를 정하면 넣습니다</span></div>
         <div class="way"><span class="k">카카오톡 채널</span><span class="v todo">채널을 만들면 넣습니다</span></div>
         <div class="way"><span class="k">이메일</span><span class="v todo">주소를 정하면 넣습니다</span></div>
       </div>
+      <!--연락처 끝-->
       <p class="hint">상담은 무료이고, 상담만 받고 진행하지 않으셔도 괜찮습니다.</p>
     </div>
   </section>
