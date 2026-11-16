@@ -1,0 +1,600 @@
+{
+ "checkedAt": "2026-11-16T04:50:50.481Z",
+ "kstDate": "2026-11-16",
+ "base": "https://salpim.pages.dev",
+ "total": 95,
+ "passed": 92,
+ "failed": 3,
+ "fails": [
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 사진 4장",
+   "ok": false,
+   "detail": "https://images.unsplash.com/photo-1661366394743-fe30fe478ef7?auto=format&fit=cro, https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=cro, https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=cro, https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=cro"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "바깥 링크 10개",
+   "ok": false,
+   "detail": "https://unsplash.com/?utm_source=salpim&utm_medium=referral → 403, https://unsplash.com/photos/oXULSch338E?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/o6wErKlvxS4?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/5v29wo-fF0g?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/icRCFbPR0_0?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DJWvzY4pkGU?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/6rLqAxjR_Ew?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/tl447mekwuQ?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/YajbkTmR2uw?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DWp5nUqTn6E?utm_source=salpim&utm_medium=r → 403"
+  },
+  {
+   "group": "④ 전화·지도·예약 버튼",
+   "name": "연락 방법이 하나 이상 연결됨",
+   "ok": false,
+   "detail": "아직 연락처가 비어 있음 (상담 신청을 받을 수 없음)"
+  }
+ ],
+ "items": [
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 320px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 320px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 360px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 360px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "첫 페이지 열림",
+   "ok": true,
+   "detail": "436ms"
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "첫 페이지 속도",
+   "ok": true,
+   "detail": "436ms (기준 4초)"
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 390px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 390px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 제목 있음",
+   "ok": true,
+   "detail": "살핌"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 쪽 안 이동(#) 링크",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 사이트 안 링크 5개",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 사진 4장",
+   "ok": false,
+   "detail": "https://images.unsplash.com/photo-1661366394743-fe30fe478ef7?auto=format&fit=cro, https://images.unsplash.com/photo-1630983358494-96012d838b84?auto=format&fit=cro, https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=cro, https://images.unsplash.com/photo-1785996757741-c46e909fd1c5?auto=format&fit=cro"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "첫 페이지 사진 설명(alt)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 1200px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "첫 페이지 1200px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 320px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 320px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 360px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 360px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 음식점 열림",
+   "ok": true,
+   "detail": "400ms"
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 음식점 속도",
+   "ok": true,
+   "detail": "400ms (기준 4초)"
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 390px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 390px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 음식점 제목 있음",
+   "ok": true,
+   "detail": "바다식당 (샘플)"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 음식점 쪽 안 이동(#) 링크",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 음식점 사이트 안 링크 2개",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 음식점 사진 3장",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 음식점 사진 설명(alt)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 1200px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 음식점 1200px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 320px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 320px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 360px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 360px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 학원 열림",
+   "ok": true,
+   "detail": "180ms"
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 학원 속도",
+   "ok": true,
+   "detail": "180ms (기준 4초)"
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 390px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 390px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 학원 제목 있음",
+   "ok": true,
+   "detail": "솔빛수학교실 (샘플)"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 학원 쪽 안 이동(#) 링크",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 학원 사이트 안 링크 2개",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 학원 사진 2장",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 학원 사진 설명(alt)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 1200px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 학원 1200px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 320px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 320px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 360px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 360px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 병원 열림",
+   "ok": true,
+   "detail": "383ms"
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 병원 속도",
+   "ok": true,
+   "detail": "383ms (기준 4초)"
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 390px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 390px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 병원 제목 있음",
+   "ok": true,
+   "detail": "한결내과의원 (샘플)"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 병원 쪽 안 이동(#) 링크",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 병원 사이트 안 링크 2개",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 병원 사진 1장",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 병원 사진 설명(alt)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 1200px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 병원 1200px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 320px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 320px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 360px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 360px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 회사 열림",
+   "ok": true,
+   "detail": "369ms"
+  },
+  {
+   "group": "① 사이트 접속",
+   "name": "샘플 회사 속도",
+   "ok": true,
+   "detail": "369ms (기준 4초)"
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 390px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 390px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 회사 제목 있음",
+   "ok": true,
+   "detail": "동백토건 (샘플)"
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 회사 쪽 안 이동(#) 링크",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 회사 사이트 안 링크 2개",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 회사 사진 1장",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "샘플 회사 사진 설명(alt)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 1200px 가로 넘침 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "② 휴대폰 화면",
+   "name": "샘플 회사 1200px 오류 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "③ 링크와 사진",
+   "name": "바깥 링크 10개",
+   "ok": false,
+   "detail": "https://unsplash.com/?utm_source=salpim&utm_medium=referral → 403, https://unsplash.com/photos/oXULSch338E?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/o6wErKlvxS4?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/5v29wo-fF0g?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/icRCFbPR0_0?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DJWvzY4pkGU?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/6rLqAxjR_Ew?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/tl447mekwuQ?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/YajbkTmR2uw?utm_source=salpim&utm_medium=r → 403, https://unsplash.com/photos/DWp5nUqTn6E?utm_source=salpim&utm_medium=r → 403"
+  },
+  {
+   "group": "④ 전화·지도·예약 버튼",
+   "name": "연락 방법이 하나 이상 연결됨",
+   "ok": false,
+   "detail": "아직 연락처가 비어 있음 (상담 신청을 받을 수 없음)"
+  },
+  {
+   "group": "⑥ 지난 내용",
+   "name": "첫 화면 리포트 날짜가 다가오는 월요일",
+   "ok": true,
+   "detail": "화면 11월 16일 (월) / 맞는 값 11월 16일 (월)"
+  },
+  {
+   "group": "⑥ 지난 내용",
+   "name": "올해 점검표 칸 수",
+   "ok": true,
+   "detail": "채워진 칸 46/52, 맞는 값 46"
+  },
+  {
+   "group": "⑥ 지난 내용",
+   "name": "지난 날짜가 적힌 글 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "⑥ 지난 내용",
+   "name": "'무제한'이라는 말 없음",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "기능 동작",
+   "name": "가격 1년·2년 합계 규모 바꾸기",
+   "ok": true,
+   "detail": "66~86만 원 ↔ 86~160만 원"
+  },
+  {
+   "group": "기능 동작",
+   "name": "자주 묻는 질문 펼치기",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "기능 동작",
+   "name": "보고 문자 도착",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "기능 동작",
+   "name": "상담 신청 버튼 → 상담 구역",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "기능 동작",
+   "name": "다크 모드 화면",
+   "ok": true,
+   "detail": "바탕 rgb(15, 17, 19)"
+  },
+  {
+   "group": "기능 동작",
+   "name": "움직임 줄이기 화면",
+   "ok": true,
+   "detail": "바탕 rgb(247, 247, 244)"
+  },
+  {
+   "group": "기능 동작",
+   "name": "음식점 '지금 영업 중' 표시",
+   "ok": true,
+   "detail": "지금 영업 중, 15:00까지"
+  },
+  {
+   "group": "기능 동작",
+   "name": "병원 '오늘 진료' 안내판",
+   "ok": true,
+   "detail": "점심시간, 14:00에 다시 시작 / 09:00 ~ 18:30"
+  },
+  {
+   "group": "기능 동작",
+   "name": "회사 실적 공종별 거르기",
+   "ok": true,
+   "detail": "전체 8건 → '옹벽과 사면3' 3건 → 전체 8건"
+  },
+  {
+   "group": "기능 동작",
+   "name": "샘플(restaurant) '샘플' 표시·검색 제외·가짜 연락처 연결 안 됨",
+   "ok": true,
+   "detail": "샘플 띠 있음, 검색 제외 됨, 연결된 연락처 0개"
+  },
+  {
+   "group": "기능 동작",
+   "name": "샘플(academy) '샘플' 표시·검색 제외·가짜 연락처 연결 안 됨",
+   "ok": true,
+   "detail": "샘플 띠 있음, 검색 제외 됨, 연결된 연락처 0개"
+  },
+  {
+   "group": "기능 동작",
+   "name": "샘플(clinic) '샘플' 표시·검색 제외·가짜 연락처 연결 안 됨",
+   "ok": true,
+   "detail": "샘플 띠 있음, 검색 제외 됨, 연결된 연락처 0개"
+  },
+  {
+   "group": "기능 동작",
+   "name": "샘플(company) '샘플' 표시·검색 제외·가짜 연락처 연결 안 됨",
+   "ok": true,
+   "detail": "샘플 띠 있음, 검색 제외 됨, 연결된 연락처 0개"
+  },
+  {
+   "group": "⑤ 인증서와 도메인",
+   "name": "보안 인증서 (salpim.pages.dev)",
+   "ok": true,
+   "detail": "61일 남음"
+  }
+ ]
+}
