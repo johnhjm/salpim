@@ -8,6 +8,13 @@ Ha님의 홈페이지 제작·월 관리 부업 "살핌"(가칭)의 소개 사�
 - `site/`: 배포 폴더(Cloudflare Pages 출력 폴더). `favicon.svg` 포함.
 - 한 페이지라 스타일을 원본 안에 둔다. 페이지가 늘어나면 `style.css`·`common.js`로 나누고 캐시 버스팅을 붙인다.
 
+## 점검 (2026-11-16 추가)
+- `tools/check.mjs`: 전체 기능 점검. 살핌이 고객에게 약속한 월요일 점검 6항목을 살핌 사이트에 그대로 한다(첫 페이지+샘플 4개, 320·360·390·1200px). 고친 뒤에는 `node tools/build.mjs && node tools/check.mjs` 로 확인하고 커밋한다.
+- `.github/workflows/check.yml`: 매주 월요일 08:10(한국 시간) 실제 사이트를 점검해 `tools/data/check-results.json` 에 저장. Claude 작업 환경은 바깥 사이트를 못 열어서 GitHub Actions로 본다. 점검 주소는 `tools/build.mjs` 의 `SITE_URL`(비어 있으면 salpim.pages.dev).
+- `tools/health-check.md`: 주간 점검 절차. 예약 작업 "살핌 주간 점검"(월요일 아침)이 이 문서를 따른다. 결과는 `tools/check-log.md` 에 한 줄씩.
+- 교훈: 휴대폰 흉내(isMobile)에서는 내용이 넘치면 화면이 축소되며 `innerWidth` 가 같이 커진다. 가로 넘침은 `innerWidth` 가 아니라 정해 둔 화면 폭과 비교해야 잡힌다.
+- 새 기능·구역을 만들면 `tools/check.mjs` 에 그 기능 점검도 같이 더한다.
+
 ## 디자인
 - 상징: 첫 화면의 "주간 점검 리포트" 카드. 막대가 차오르며 항목이 차례로 체크되고 6.5초마다 다음 주로 넘어간다(화면에 보일 때만).
 - 색: 따뜻한 회백색 바탕 + 먹색(글자·기본 버튼) + '정상 신호' 초록(--ok) 하나. 초록은 체크·상태 점·진행 막대에만 쓴다.
@@ -32,5 +39,6 @@ Ha님의 홈페이지 제작·월 관리 부업 "살핌"(가칭)의 소개 사�
   - 모두 가상 업체, 상단 띠에 샘플 표시, `noindex`
 - [x] GitHub 저장소(johnhjm/salpim) + Cloudflare Pages 연결 → 임시 주소 https://salpim.pages.dev (출력 폴더 `site`, main에 올리면 자동 배포) (2026-10-18)
 - [x] 샘플에 실사 사진(Unsplash, images.unsplash.com 직접 연결 + 바닥글에 작가 표기). 원장 사진은 '직접 촬영' 자리로 남김. claude.ai 미리보기에서는 외부 사진이 막혀 안 보이고 pages.dev에서만 보인다 (2026-10-18)
+- [x] 전체 기능 자동 점검(`tools/check.mjs`)과 주간 점검 절차·예약 작업 (2026-11-16)
 - [ ] 도메인 연결 후 검색 등록, 방문 통계, OG 그림(og.png)
 - [ ] 사업자 등록 후 바닥글에 사업자 정보
