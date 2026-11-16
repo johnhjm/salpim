@@ -102,8 +102,14 @@ try {
       if (status !== 200) { await ctx.close(); continue; }
       await page.waitForTimeout(300);
       // 끝까지 내려 보며 늦게 나타나는 것(보고 문자 등)까지 띄운다
-      await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += innerHeight / 2) { scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); } scrollTo(0, 0); });
-      await page.waitForTimeout(LIVE ? 1500 : 300);
+      // (부드러운 스크롤이 켜져 있으면 scrollTo 가 천천히 움직여 아래까지 못 가므로 behavior:"instant" 로 바로 옮긴다)
+      await page.evaluate(async () => {
+        for (let y = 0; y < document.body.scrollHeight; y += innerHeight / 2) { scrollTo({ top: y, behavior: "instant" }); await new Promise(r => setTimeout(r, 60)); }
+        // 늦게 불러오는 사진(loading="lazy")이 다 뜰 때까지 최대 10초 기다린다
+        await Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => { i.addEventListener("load", r); i.addEventListener("error", r); setTimeout(r, 10000); })));
+        scrollTo({ top: 0, behavior: "instant" });
+      });
+      await page.waitForTimeout(300);
 
       // 휴대폰 흉내에서는 내용이 넘치면 화면이 축소되며 innerWidth가 같이 커지므로, 정해 둔 화면 폭(w)과 비교한다
       const m = await page.evaluate(w => {
@@ -145,8 +151,14 @@ try {
   if (LIVE) {
     const ctx = await browser.newContext();
     const bad = [];
-    for (const u of externalLinks) { const r = await ctx.request.get(u, { timeout: 20000, maxRedirects: 5 }).catch(() => null); if (!r || r.status() >= 400) bad.push(`${u.slice(0, 70)} → ${r ? r.status() : "응답 없음"}`); }
-    add(G.links, `바깥 링크 ${externalLinks.size}개`, bad.length === 0, bad.join(", "));
+    // 401·403·429 는 상대 사이트가 자동 점검(로봇)을 막은 것이라 "깨진 링크"로 보지 않고 따로 센다
+    let blocked = 0;
+    for (const u of externalLinks) {
+      const r = await ctx.request.get(u, { timeout: 20000, maxRedirects: 5 }).catch(() => null);
+      if (r && [401, 403, 429].includes(r.status())) blocked++;
+      else if (!r || r.status() >= 400) bad.push(`${u.slice(0, 70)} → ${r ? r.status() : "응답 없음"}`);
+    }
+    add(G.links, `바깥 링크 ${externalLinks.size}개`, bad.length === 0, bad.join(", ") || (blocked ? `${blocked}개는 상대 사이트가 자동 점검을 막아 확인 못 함(고장 아님)` : ""));
     await ctx.close();
   }
 
@@ -156,12 +168,14 @@ try {
     const page = await ctx.newPage();
     if (!LIVE) await page.route(u => !u.href.startsWith(origin), r => r.abort());
     await page.goto(BASE + "/", { waitUntil: "domcontentloaded" });
+    if (LIVE) { await page.evaluate(() => document.getElementById("work").scrollIntoView({ behavior: "instant" })); await page.waitForTimeout(4000); }
     const c = await page.evaluate(() => ({
       todo: [...document.querySelectorAll("#contact .way .v.todo")].map(e => e.previousElementSibling.textContent),
       ways: [...document.querySelectorAll("#contact .way")].map(e => ({ k: e.querySelector(".k").textContent, href: (e.querySelector("a") || {}).href || "", text: e.querySelector(".v").textContent.trim() })),
       tels: [...document.querySelectorAll('a[href^="tel:"], a[href^="sms:"]')].map(a => a.getAttribute("href")),
       mails: [...document.querySelectorAll('a[href^="mailto:"]')].map(a => a.getAttribute("href")),
       date: document.getElementById("sheetDate").textContent,
+      shots: document.querySelectorAll("#work .mini .shot img").length, tiles: document.querySelectorAll("#work .tile").length,
       weeksOn: document.querySelectorAll("#weeks i.on").length, weeksAll: document.querySelectorAll("#weeks i").length,
       text: document.body.innerText,
     }));
@@ -173,6 +187,8 @@ try {
     const badMail = c.mails.filter(t => !/^mailto:[^@\s]+@[^@\s]+\.[a-z]{2,}/i.test(t));
     if (c.mails.length) add(G.contact, `이메일 버튼 ${c.mails.length}개 주소 형식`, badMail.length === 0, badMail.join(", "));
 
+    // 샘플 카드 사진은 못 불러오면 스스로 빠지고 그림으로 바뀐다. 실제 사이트에서 4장 다 남아 있는지 본다.
+    if (LIVE) add(G.links, "첫 페이지 샘플 카드 사진", c.shots === c.tiles && c.tiles === 4, `카드 ${c.tiles}개 중 사진 ${c.shots}장`);
     add(G.stale, "첫 화면 리포트 날짜가 다가오는 월요일", c.date === expectDate, `화면 ${c.date} / 맞는 값 ${expectDate}`);
     add(G.stale, "올해 점검표 칸 수", c.weeksOn === expectWeeks && c.weeksAll === 52, `채워진 칸 ${c.weeksOn}/${c.weeksAll}, 맞는 값 ${expectWeeks}`);
     // 본문에 적힌 날짜 중 이미 지난 것(끝난 공지 등) 찾기
