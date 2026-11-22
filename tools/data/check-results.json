@@ -1,6 +1,6 @@
 {
- "checkedAt": "2026-11-16T04:53:32.465Z",
- "kstDate": "2026-11-16",
+ "checkedAt": "2026-11-22T23:55:39.519Z",
+ "kstDate": "2026-11-23",
  "base": "https://salpim.pages.dev",
  "total": 96,
  "passed": 95,
@@ -42,13 +42,13 @@
    "group": "① 사이트 접속",
    "name": "첫 페이지 열림",
    "ok": true,
-   "detail": "427ms"
+   "detail": "511ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "첫 페이지 속도",
    "ok": true,
-   "detail": "427ms (기준 4초)"
+   "detail": "511ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -132,13 +132,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 음식점 열림",
    "ok": true,
-   "detail": "221ms"
+   "detail": "406ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 음식점 속도",
    "ok": true,
-   "detail": "221ms (기준 4초)"
+   "detail": "406ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -222,13 +222,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 학원 열림",
    "ok": true,
-   "detail": "193ms"
+   "detail": "204ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 학원 속도",
    "ok": true,
-   "detail": "193ms (기준 4초)"
+   "detail": "204ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -312,13 +312,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 병원 열림",
    "ok": true,
-   "detail": "203ms"
+   "detail": "339ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 병원 속도",
    "ok": true,
-   "detail": "203ms (기준 4초)"
+   "detail": "339ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -402,13 +402,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 회사 열림",
    "ok": true,
-   "detail": "222ms"
+   "detail": "366ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 회사 속도",
    "ok": true,
-   "detail": "222ms (기준 4초)"
+   "detail": "366ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -486,13 +486,13 @@
    "group": "⑥ 지난 내용",
    "name": "첫 화면 리포트 날짜가 다가오는 월요일",
    "ok": true,
-   "detail": "화면 11월 16일 (월) / 맞는 값 11월 16일 (월)"
+   "detail": "화면 11월 23일 (월) / 맞는 값 11월 23일 (월)"
   },
   {
    "group": "⑥ 지난 내용",
    "name": "올해 점검표 칸 수",
    "ok": true,
-   "detail": "채워진 칸 46/52, 맞는 값 46"
+   "detail": "채워진 칸 47/52, 맞는 값 47"
   },
   {
    "group": "⑥ 지난 내용",
@@ -546,13 +546,13 @@
    "group": "기능 동작",
    "name": "음식점 '지금 영업 중' 표시",
    "ok": true,
-   "detail": "지금 영업 중, 15:00까지"
+   "detail": "쉬는 시간, 11:00에 다시 시작"
   },
   {
    "group": "기능 동작",
    "name": "병원 '오늘 진료' 안내판",
    "ok": true,
-   "detail": "점심시간, 14:00에 다시 시작 / 09:00 ~ 18:30"
+   "detail": "점심시간, 09:00에 다시 시작 / 09:00 ~ 18:30"
   },
   {
    "group": "기능 동작",
@@ -588,7 +588,7 @@
    "group": "⑤ 인증서와 도메인",
    "name": "보안 인증서 (salpim.pages.dev)",
    "ok": true,
-   "detail": "61일 남음"
+   "detail": "54일 남음"
   }
  ]
 }
