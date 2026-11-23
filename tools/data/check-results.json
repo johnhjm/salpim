@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-22T23:55:39.519Z",
+ "checkedAt": "2026-11-23T03:43:49.942Z",
  "kstDate": "2026-11-23",
  "base": "https://salpim.pages.dev",
  "total": 96,
@@ -42,13 +42,13 @@
    "group": "① 사이트 접속",
    "name": "첫 페이지 열림",
    "ok": true,
-   "detail": "511ms"
+   "detail": "474ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "첫 페이지 속도",
    "ok": true,
-   "detail": "511ms (기준 4초)"
+   "detail": "474ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -132,13 +132,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 음식점 열림",
    "ok": true,
-   "detail": "406ms"
+   "detail": "316ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 음식점 속도",
    "ok": true,
-   "detail": "406ms (기준 4초)"
+   "detail": "316ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -222,13 +222,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 학원 열림",
    "ok": true,
-   "detail": "204ms"
+   "detail": "168ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 학원 속도",
    "ok": true,
-   "detail": "204ms (기준 4초)"
+   "detail": "168ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -312,13 +312,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 병원 열림",
    "ok": true,
-   "detail": "339ms"
+   "detail": "509ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 병원 속도",
    "ok": true,
-   "detail": "339ms (기준 4초)"
+   "detail": "509ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -402,13 +402,13 @@
    "group": "① 사이트 접속",
    "name": "샘플 회사 열림",
    "ok": true,
-   "detail": "366ms"
+   "detail": "272ms"
   },
   {
    "group": "① 사이트 접속",
    "name": "샘플 회사 속도",
    "ok": true,
-   "detail": "366ms (기준 4초)"
+   "detail": "272ms (기준 4초)"
   },
   {
    "group": "② 휴대폰 화면",
@@ -546,13 +546,13 @@
    "group": "기능 동작",
    "name": "음식점 '지금 영업 중' 표시",
    "ok": true,
-   "detail": "쉬는 시간, 11:00에 다시 시작"
+   "detail": "지금 영업 중, 15:00까지"
   },
   {
    "group": "기능 동작",
    "name": "병원 '오늘 진료' 안내판",
    "ok": true,
-   "detail": "점심시간, 09:00에 다시 시작 / 09:00 ~ 18:30"
+   "detail": "지금 진료 중, 13:00까지 / 09:00 ~ 18:30"
   },
   {
    "group": "기능 동작",
