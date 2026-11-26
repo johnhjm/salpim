@@ -46,7 +46,7 @@
 
 | 고객 | 저장소 | 주소 | 넣은 날 | 메모 |
 |---|---|---|---|---|
-| 비추미안경 | johnhjm/client-bichumi | https://bichumi.pages.dev | 2026-11-25 | 지인 무료 고객(수금 없음). 시안 단계, 도메인 미정. 자동 점검은 월요일 08:20 |
+| 비추미안경 | johnhjm/client-bichumi | https://bichumioptical.com | 2026-11-25 | 지인 무료 고객(수금 없음). 시안 단계(검색 제외 중). 도메인은 2026-11-26 Ha님 Cloudflare 계정으로 구입, 만료 2027-11-26(자동 갱신). 자동 점검은 월요일 08:20 |
 
 새 고객을 더할 때: 이 표에 한 줄, 고객 저장소에 `tools/weekly.mjs`·`.github/workflows/check.yml`·`tools/health-check.md`·`tools/check-log.md`(비추미안경 것을 본떠서), 그리고 예약 작업 "살핌 주간 점검"의 고객 목록에 저장소 이름을 더한다.
 
